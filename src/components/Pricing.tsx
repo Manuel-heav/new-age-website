@@ -78,90 +78,94 @@ const Pricing = () => {
 
       <div className="shadow-[163px_139px_60px_rgba(0,0,0,0)] flex w-full items-center gap-6 flex-wrap mt-12 max-md:max-w-full max-md:mt-10">
         {pricingPlans.map((plan) => (
-          <article
+          <div
             key={plan.id}
-            className="shadow-2xl shadow-[#1884c2]/30 self-stretch min-w-60 overflow-hidden leading-[1.4] grow shrink w-[215px] my-auto px-[23px] rounded-[15.6px] border-[3.9px] border-solid border-[#0F288D] max-md:px-5 bg-[#071548] [background-image:radial-gradient(at_top_right,_#1884c2,_transparent_50%),radial-gradient(at_bottom_left,_#1884c2,_transparent_50%)]"
+            className="rounded-[15.6px] p-[3.9px] bg-gradient-to-r from-[#10298e] to-[#1eb6fa] self-stretch min-w-60 grow shrink w-[215px] my-auto"
           >
-            <div className="flex min-h-[368px] w-full flex-col items-stretch justify-between py-6">
-              <div className="flex w-full flex-col items-stretch">
-                <div className="flex w-full items-center gap-1 text-[30px] font-extrabold">
-                  <span className="text-[#FDFDFD] tracking-[-0.12px] self-stretch my-auto">
-                    {plan.title[0]}
-                  </span>
-                  <span className="tracking-[-0.7px] bg-clip-text bg-gradient-to-r from-[#8ca4f4] to-[#d6e6fd] text-transparent self-stretch my-auto">
-                    {plan.title[1]}
-                  </span>
-                </div>
-                <div className="rotate-[1.3877787807814457e-17rad] bg-[rgba(15,40,141,0.45)] flex items-center gap-1.5 text-xs text-[#B0BEF7] font-normal tracking-[-0.06px] mt-1 pl-3 pr-[11px] py-2 rounded-[27px]">
-                  <span className="text-[#B0BEF7] self-stretch my-auto">
-                    {plan.subtitle}
-                  </span>
-                </div>
-              </div>
-
-              <div className="rotate-[1.3877787807814457e-17rad] mt-[30px]">
-                {Array.isArray(plan.price) ? (
-                  <div className="flex gap-2">
-                    <div className="flex items-center gap-px whitespace-nowrap leading-[1.1] justify-between w-[105px]">
-                      <span className="text-[#8DA1F3] text-[34px] font-medium tracking-[-0.68px] self-stretch my-auto">
-                        $
-                      </span>
-                      <span className="text-[#FDFDFD] text-[47px] font-extrabold tracking-[-0.94px] self-stretch my-auto max-md:text-[40px]">
-                        750
-                      </span>
-                    </div>
-                    <div className="flex flex-col items-stretch justify-center w-[11px] py-[9px]">
-                      <div className="flex shrink-0 h-[3px] bg-[#CCD5FA] rounded-[29.097px]" />
-                    </div>
-                    <div className="flex items-center gap-px text-[26px] whitespace-nowrap tracking-[-0.51px] leading-[1.1]">
-                      <span className="text-[#8DA1F3] font-medium self-stretch my-auto">
-                        $
-                      </span>
-                      <span className="text-[#FDFDFD] font-extrabold self-stretch my-auto">
-                        1200
-                      </span>
-                    </div>
-                  </div>
-                ) : plan.id === 4 ? (
-                  <div className="w-full text-sm text-[#FCFCFF] font-medium tracking-[-0.07px] pl-[30px] pr-[29px] max-md:px-5">
-                    <div className="rotate-[1.3877787807814457e-17rad] border flex min-h-[35px] max-w-full w-[163px] items-center gap-[13px] justify-center p-2 rounded-[7px] border-white border-solid">
-                      <span className="text-[#FCFCFF] self-stretch my-auto">
-                        {plan.price}
-                      </span>
-                    </div>
-                  </div>
-                ) : plan.id === 2 ? (
-                  <div className="flex gap-0.5 whitespace-nowrap leading-[1.1]">
-                    <span className="text-[#8DA1F3] text-[34px] font-medium tracking-[-0.68px]">
-                      $
+            <article className="shadow-2xl shadow-[#1884c2]/30 overflow-hidden leading-[1.4] rounded-[11.7px] bg-[#111f6f] [background-image:radial-gradient(at_top_left,_#071549,_transparent_50%),radial-gradient(at_top_right,_#1880bd,_transparent_50%),radial-gradient(at_bottom_left,_#4639b9,_transparent_50%),radial-gradient(at_bottom_right,_#0f2889,_transparent_50%)]">
+              <div className="flex min-h-[420px] w-full flex-col items-stretch justify-between p-6">
+                <div className="flex w-full flex-col items-stretch">
+                  <div className="flex w-full items-center gap-1 text-[30px] font-extrabold">
+                    <span className="text-[#FDFDFD] tracking-[-0.12px] self-stretch my-auto">
+                      {plan.title[0]}
                     </span>
-                    <span className="text-[#FDFDFD] text-[47px] font-extrabold tracking-[-0.94px] max-md:text-[40px]">
-                      250
+                    <span className="tracking-[-0.7px] bg-clip-text bg-gradient-to-r from-[#8ca4f4] to-[#d6e6fd] text-transparent self-stretch my-auto">
+                      {plan.title[1]}
                     </span>
                   </div>
-                ) : (
-                  <div className="flex gap-0.5 text-[32px] text-[#FDFDFD] font-normal tracking-[-0.64px] leading-[1.1]">
-                    <span className="text-[#FDFDFD]">{plan.price}</span>
+                  <div className="rotate-[1.3877787807814457e-17rad] bg-[rgba(15,40,141,0.45)] flex items-center mt-4 gap-1.5 text-xs text-[#B0BEF7] font-normal tracking-[-0.06px] pl-3 pr-[11px] py-2 rounded-[27px]">
+                    <span className="text-[#B0BEF7] self-stretch my-auto">
+                      {plan.subtitle}
+                    </span>
                   </div>
-                )}
-              </div>
+                </div>
 
-              <div className="rotate-[1.3877787807814457e-17rad] w-full text-xs text-[#FDFDFD] font-medium tracking-[-0.06px] mt-[30px]">
-                {plan.features.map((feature, index) => (
-                  <div key={index} className="text-[#FDFDFD] leading-4 mb-1">
-                    • {feature}
-                  </div>
-                ))}
-              </div>
+                <div className="rotate-[1.3877787807814457e-17rad] mt-[30px]">
+                  {Array.isArray(plan.price) ? (
+                    <div className="flex gap-2">
+                      <div className="flex items-center gap-px whitespace-nowrap leading-[1.1] justify-between w-[105px]">
+                        <span className="text-[#8DA1F3] text-[34px] font-medium tracking-[-0.68px] self-stretch my-auto">
+                          $
+                        </span>
+                        <span className="text-[#FDFDFD] text-[47px] font-extrabold tracking-[-0.94px] self-stretch my-auto max-md:text-[40px]">
+                          750
+                        </span>
+                      </div>
+                      <div className="flex flex-col items-stretch justify-center w-[11px] py-[9px]">
+                        <div className="flex shrink-0 h-[3px] bg-[#CCD5FA] rounded-[29.097px]" />
+                      </div>
+                      <div className="flex items-center gap-px text-[26px] whitespace-nowrap tracking-[-0.51px] leading-[1.1]">
+                        <span className="text-[#8DA1F3] font-medium self-stretch my-auto">
+                          $
+                        </span>
+                        <span className="text-[#FDFDFD] font-extrabold self-stretch my-auto">
+                          1200
+                        </span>
+                      </div>
+                    </div>
+                  ) : plan.id === 4 ? (
+                    <div className="w-full text-sm text-[#FCFCFF] font-medium tracking-[-0.07px] pl-[30px] pr-[29px] max-md:px-5">
+                      <div className="rotate-[1.3877787807814457e-17rad] border flex min-h-[35px] max-w-full w-60 items-center gap-[13px] justify-center p-2 rounded-[7px] border-white border-solid">
+                        <span className="text-[#FCFCFF] self-stretch my-auto font-normal text-lg">
+                          {plan.price}
+                        </span>
+                      </div>
+                    </div>
+                  ) : plan.id === 2 ? (
+                    <div className="flex gap-0.5 whitespace-nowrap leading-[1.1]">
+                      <span className="text-[#8DA1F3] text-[34px] font-medium tracking-[-0.68px]">
+                        $
+                      </span>
+                      <span className="text-[#FDFDFD] text-[47px] font-extrabold tracking-[-0.94px] max-md:text-[40px]">
+                        250
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="flex gap-0.5 text-[32px] text-[#FDFDFD] font-normal tracking-[-0.64px] leading-[1.1]">
+                      <span className="text-[#FDFDFD]">{plan.price}</span>
+                    </div>
+                  )}
+                </div>
 
-              <button
-                onClick={() => handleBookCall(plan.title.join(" "))}
-                className={`justify-center items-center flex min-h-[38px] w-full text-xs font-bold tracking-[-0.06px] leading-none mt-[30px] px-3 py-[11px] rounded-lg transition-all hover:scale-105 ${plan.buttonClass}`}
-              >
-                <span className="self-stretch my-auto">{plan.buttonText}</span>
-              </button>
-            </div>
-          </article>
+                <div className="rotate-[1.3877787807814457e-17rad] w-full text-xs text-[#FDFDFD] font-medium tracking-[-0.06px] mt-[30px]">
+                  {plan.features.map((feature, index) => (
+                    <div key={index} className="text-[#FDFDFD] leading-4 mb-1">
+                      • {feature}
+                    </div>
+                  ))}
+                </div>
+
+                <button
+                  onClick={() => handleBookCall(plan.title.join(" "))}
+                  className={`justify-center items-center flex min-h-[38px] w-full text-xs font-bold tracking-[-0.06px] leading-none mt-[30px] px-3 py-[11px] rounded-lg transition-all hover:scale-105 ${plan.buttonClass}`}
+                >
+                  <span className="self-stretch my-auto">
+                    {plan.buttonText}
+                  </span>
+                </button>
+              </div>
+            </article>
+          </div>
         ))}
       </div>
     </section>

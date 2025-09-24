@@ -22,7 +22,7 @@ const Header = () => {
       <nav className="self-stretch flex min-w-60 items-center gap-6 font-medium text-center flex-wrap my-auto max-md:max-w-full">
         <div className="self-stretch flex min-w-60 items-center gap-6 text-lg text-[#130231] tracking-[-0.09px] my-auto max-md:max-w-full">
           <Link
-            to="/"
+            to="/home"
             className="text-[#130231] self-stretch my-auto hover:text-blue-600 transition-colors"
           >
             Home

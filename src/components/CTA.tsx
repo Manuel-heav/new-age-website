@@ -41,9 +41,10 @@ const CTA = () => {
   return (
     <section
       id="contact"
-      className="pb-[var(--sds-size-space-1600)] flex w-full flex-col items-center gap-[var(--sds-size-space-800)] px-4"
+      className="pb-[var(--sds-size-space-1600)] flex w-full flex-col items-center gap-[var(--sds-size-space-800)]"
     >
-      <div className="flex w-full max-w-[956px] flex-col items-center gap-8 text-center md:flex-row md:items-center md:justify-between md:gap-[40px_100px] md:text-left">
+      {/* This is the updated section */}
+      <div className="flex w-full max-w-6xl flex-col items-center gap-20 px-8 text-center md:flex-row md:items-center md:justify-between md:gap-[40px_100px] md:text-left">
         <div className="flex w-full max-w-[581px] flex-col items-center md:items-start">
           <div className="text-black text-[56px] font-bold leading-[1.1] tracking-[-1.12px] max-md:text-[40px]">
             <span className="font-semibold">Ready to</span>{" "}
@@ -55,7 +56,6 @@ const CTA = () => {
             Let's schedule a Call and Explore the possibilities.
           </p>
 
-          {/* This is the updated section */}
           <div className="flex w-full max-w-[420px] flex-row justify-center gap-4 text-[#0F288D] mt-4 md:justify-start">
             <div className="flex items-center gap-2 flex-1 shrink p-4 basis-[0%] bg-[#DEDEDE] rounded-full">
               <img

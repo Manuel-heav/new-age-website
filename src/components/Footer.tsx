@@ -21,8 +21,10 @@ const Footer = () => {
       href: "https://www.linkedin.com/company/new-age-ai-products-and-services/",
     },
     {
-      name: "Twitter",
-      href: "https://api.builder.io/api/v1/image/assets/TEMP/fbca29055cc4251d2e3172b3d7246bee6e3745f4?placeholderIfAbsent=true", // Example Twitter URL
+      name: "Email",
+      href: "mailto:info@newageai.com", // IMPORTANT: Replace with your actual email
+      customIcon:
+        "https://cdn.builder.io/api/v1/image/assets/TEMP/fbca29055cc4251d2e3172b3d7246bee6e3745f4?placeholderIfAbsent=true",
     },
     {
       name: "WhatsApp",
@@ -51,17 +53,35 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center gap-6 mt-14 max-md:mt-10">
-            {socialLinks.map((social) => (
-              <SocialIcon
-                key={social.name}
-                url={social.href}
-                aria-label={social.name}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ height: 40, width: 40 }}
-                className="hover:opacity-75 transition-opacity"
-              />
-            ))}
+            {socialLinks.map((social) =>
+              // If a customIcon is provided, use it. Otherwise, use SocialIcon.
+              social.customIcon ? (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  aria-label={social.name}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-75 transition-opacity"
+                >
+                  <img
+                    src={social.customIcon}
+                    alt={`${social.name} icon`}
+                    style={{ height: 40, width: 40 }}
+                  />
+                </a>
+              ) : (
+                <SocialIcon
+                  key={social.name}
+                  url={social.href}
+                  aria-label={social.name}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ height: 40, width: 40 }}
+                  className="hover:opacity-75 transition-opacity"
+                />
+              )
+            )}
           </div>
         </div>
 
