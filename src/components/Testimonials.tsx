@@ -23,6 +23,7 @@ const useWindowSize = () => {
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
   const windowWidth = useWindowSize();
 
   const testimonials = [
@@ -70,19 +71,37 @@ const Testimonials = () => {
     },
   ];
 
+  const extendedTestimonials = [...testimonials, ...testimonials];
+
   const isMobile = windowWidth < 768;
   const isTablet = windowWidth >= 768 && windowWidth < 1024;
 
   useEffect(() => {
-    // Disable slider on mobile
     if (isMobile) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+      setCurrentIndex((prevIndex) => prevIndex + 1);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isMobile, testimonials.length]);
+  }, [isMobile]);
+
+  useEffect(() => {
+    if (currentIndex >= testimonials.length) {
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(currentIndex % testimonials.length);
+      }, 500); // This timeout should match the transition duration
+    }
+  }, [currentIndex, testimonials.length]);
+
+  useEffect(() => {
+    if (!isTransitioning) {
+      setTimeout(() => {
+        setIsTransitioning(true);
+      }, 50);
+    }
+  }, [isTransitioning]);
 
   const getSliderTransform = () => {
     if (isMobile) return { transform: "translateX(0)" };
@@ -91,7 +110,10 @@ const Testimonials = () => {
     const gap = isTablet ? 24 : 32;
     const offset = currentIndex * (cardWidth + gap);
 
-    return { transform: `translateX(-${offset}px)` };
+    return {
+      transform: `translateX(-${offset}px)`,
+      transition: isTransitioning ? "transform 500ms ease-in-out" : "none",
+    };
   };
 
   return (
@@ -102,12 +124,12 @@ const Testimonials = () => {
 
       <div className="mt-12 self-center w-full max-w-full overflow-hidden">
         <div
-          className="flex gap-8 transition-transform duration-500 ease-in-out md:gap-6 lg:gap-8 flex-col md:flex-row px-10"
+          className="flex gap-8 md:gap-6 lg:gap-8 flex-col md:flex-row px-10"
           style={getSliderTransform()}
         >
-          {testimonials.map((testimonial) => (
+          {extendedTestimonials.map((testimonial, index) => (
             <article
-              key={testimonial.id}
+              key={index}
               className="w-full flex-shrink-0 rounded-[20px] bg-[#F2F5FE] p-8 shadow-[0_8px_24px_rgba(0,0,0,0.15)] md:w-[400px] md:p-8 lg:w-[485px] lg:p-10"
               style={{ minHeight: isMobile ? "auto" : "333px" }}
             >

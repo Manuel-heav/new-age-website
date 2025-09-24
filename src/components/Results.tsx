@@ -6,38 +6,34 @@ import card3 from "@/assets/Card_3.png";
 const Results = () => {
   return (
     <section
-      className="relative flex w-full flex-col overflow-hidden text-[#FCFCFF] font-medium tracking-[-3.28px] px-[70px] max-md:text-[40px] max-md:pb-[100px] max-md:px-5"
+      className="relative flex w-full flex-col overflow-hidden bg-cover bg-center px-5 pt-8 pb-[100px] font-medium tracking-[-3.28px] text-[#FCFCFF] md:px-[70px] md:pt-0 md:pb-0"
       style={{
         fontFamily: "'Manrope', sans-serif",
         backgroundImage: `url(${resultBg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
       }}
     >
-      {/* Import font here so it only loads when this component is rendered */}
       <style>
         {`@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');`}
       </style>
+
       {/* Title */}
-      <h2 className="pl-10 text-[230px] font-light leading-none mb-4 max-md:text-[40px] max-md:pl-5">
+      <h2 className="pl-5 text-[40px] font-light leading-[0.8] m-0 md:pl-36 md:text-[230px] md:-mt-8">
         Result
       </h2>
 
-      {/* Cards */}
-      <div className="flex justify-end pr-10 gap-8 max-md:flex-col max-md:items-center">
+      {/* This container groups the images so they can be stacked below the title */}
+      <div className="flex justify-center items-center mt-8 md:mt-0 md:justify-end md:pr-10">
         <img
           src={card2}
           alt="Client Onboarding Faster"
-          className="w-[400px] h-auto -mt-10 max-md:w-[220px] max-md:mt-0"
+          className="w-[220px] h-auto md:w-[650px] md:h-[650px] md:-mt-10"
         />
         <img
           src={card3}
           alt="Hours Saved"
-          className="w-[400px] h-auto max-md:w-[220px]"
+          className="w-[220px] h-auto z-10 -ml-28 md:w-[600px] md:h-[600px] md:-ml-60 md:mr-40"
         />
       </div>
-
-      <img src="assets/Card_2.png" alt="" />
     </section>
   );
 };
