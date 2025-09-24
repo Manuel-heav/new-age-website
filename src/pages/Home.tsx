@@ -12,6 +12,7 @@ import Footer from "@/components/Footer";
 import howItWorks01 from "@/assets/how-it-works-01.png";
 import howItWorks02 from "@/assets/how-it-works-02.png";
 import howItWorks03 from "@/assets/how-it-works-03.png";
+import Proven from "@/components/Proven";
 
 const Index = () => {
   return (
@@ -77,11 +78,9 @@ const Index = () => {
             </div>
           </section>
 
-          <CompanySteps />
-          <Results />
-          <WhoItsFor />
-          <Testimonials />
           <Pricing />
+          <WhoItsFor />
+          <Proven />
           <WorkflowMap />
           <CTA />
         </main>
