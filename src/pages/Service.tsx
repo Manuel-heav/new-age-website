@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import {
   Accordion,
   AccordionContent,
@@ -83,26 +82,98 @@ const Service = () => {
 
   const faqItems = [
     {
-      question: "Question 1",
+      question:
+        "How quickly will I get a response after filling out the inquiry form?",
       answer:
-        "This is the answer to question 1 about our AI automation services.",
+        "You’ll receive a response within 24 hours to schedule your discovery call.",
     },
     {
-      question: "Question 1",
+      question: "What happens during the discovery call?",
       answer:
-        "This is another answer explaining our processes and methodologies.",
+        "We run a 30-minute call to understand your business goals, challenges, and existing processes. Based on that, we recommend the best AI solution tailored to your needs.",
     },
     {
-      question: "Question 1",
-      answer: "Here we explain more details about our service offerings.",
+      question: "Can I test the workflow before it goes live?",
+      answer:
+        "Yes, we build and test workflows in a sandbox environment first to ensure they work without impacting your real data.",
     },
     {
-      question: "Question 1",
-      answer: "Additional information about pricing and packages.",
+      question: "What tools do you use for feedback and internal testing?",
+      answer:
+        "We use Loom videos to explain the workflow logic and gather QA feedback before finalization.",
     },
     {
-      question: "Question 1",
-      answer: "More details about implementation and support.",
+      question: "How do I provide feedback after delivery?",
+      answer:
+        "You can share feedback through our feedback form. We also explore upgrades, retainers, or featuring your workflow as a case study based on your experience.",
+    },
+    {
+      question: "Do you offer ongoing support after delivery?",
+      answer:
+        "Yes, we provide options for upgrades, maintenance retainers, and workflow improvements to support your growth.",
+    },
+    {
+      question: "Who owns the workflow once it’s delivered?",
+      answer:
+        "You have full ownership of the delivered workflow, including the documentation and setup provided.",
+    },
+    {
+      question:
+        "Can you integrate with my existing tools (e.g., Slack, CRM, Notion)?",
+      answer:
+        "Yes, our workflows are designed to integrate with your existing tools and platforms seamlessly.",
+    },
+    {
+      question: "How much does an AI project cost?",
+      answer:
+        "Pricing depends on the complexity, integrations, and level of customization required. We provide a transparent estimate after the discovery call.",
+    },
+    {
+      question: "How long will it take to implement my AI solution?",
+      answer:
+        "Most workflows are delivered within 2–6 weeks, depending on scope and integrations. Timelines are shared during the proposal stage.",
+    },
+    {
+      question: "Is my data safe with New Age AI?",
+      answer:
+        "Yes. We follow strict security and compliance practices. Your data is never shared outside your project and is only used for implementation.",
+    },
+    {
+      question: "Do you offer custom AI models or only pre-built workflows?",
+      answer:
+        "We build both—from no-code/low-code automations to custom-trained models—depending on your needs.",
+    },
+    {
+      question: "What industries do you specialize in?",
+      answer:
+        "We’re industry-agnostic and have worked across SaaS, eCommerce, professional services, and operations teams.",
+    },
+    {
+      question: "What’s the ROI of implementing AI workflows?",
+      answer:
+        "AI workflows typically save time, reduce manual errors, and scale operations at a lower cost. We help measure ROI by comparing pre- and post-implementation metrics.",
+    },
+    {
+      question: "Do you train our team on how to use the AI workflows?",
+      answer:
+        "Yes, we provide documentation, Loom walkthroughs, and optional live training sessions.",
+    },
+    {
+      question: "What happens if I need changes after the workflow is live?",
+      answer:
+        "You can request upgrades or adjustments anytime. We offer retainer packages for ongoing optimization.",
+    },
+    {
+      question:
+        "Do you work with startups as well as established businesses?",
+      answer:
+        "Yes. We tailor our approach for early-stage startups through to established enterprises.",
+    },
+    {
+      question:
+        "What makes New Age AI different from other AI agencies?",
+      answer:
+        "We deliver simple, scalable, and documented workflows with a hands-on approach so your team understands and benefits from the solution.",
     },
   ];
 
@@ -160,7 +231,7 @@ const Service = () => {
                   >
                     <div
                       className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-90`}
-                    ></div>
+                    />
                     <CardContent className="relative z-10 p-6 text-white text-center">
                       <h3 className="text-lg font-bold mb-2">{card.title}</h3>
                       <p className="text-sm opacity-90 mb-4">
@@ -215,7 +286,7 @@ const Service = () => {
                           key={featureIndex}
                           className="flex items-start text-blue-100"
                         >
-                          <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 mr-2 flex-shrink-0"></div>
+                          <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 mr-2 flex-shrink-0" />
                           {feature}
                         </li>
                       ))}
@@ -253,8 +324,8 @@ const Service = () => {
 
               <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg">
                 <div className="w-16 h-16 border-4 border-blue-600 rounded-full relative">
-                  <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-0.5 h-6 bg-blue-600"></div>
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-0.5 bg-blue-600"></div>
+                  <div className="absolute top-1 left-1/2 -translate-x-1/2 w-0.5 h-6 bg-blue-600" />
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-0.5 bg-blue-600" />
                 </div>
               </div>
             </div>
@@ -296,7 +367,7 @@ const Service = () => {
 
           <div className="mt-16 relative">
             <div className="bg-gradient-to-r from-blue-400 to-blue-600 rounded-3xl p-8 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-transparent" />
               <div className="relative z-10 flex items-center justify-center">
                 <div className="text-white text-center">
                   <div className="text-2xl font-bold mb-2">🤝</div>
@@ -308,7 +379,7 @@ const Service = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="px-16 py-16 max-md:px-5">
+        <section id="faqs" className="px-16 py-16 max-md:px-5">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-center text-[#130231] mb-12">
               FAQs
