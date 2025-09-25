@@ -1,32 +1,41 @@
-import React from 'react';
+import React from "react";
+import { SocialIcon } from "react-social-icons";
 
 const Footer = () => {
   const navigationLinks = {
     company: [
-      { name: 'Workflow Map', href: '/#workflow' },
-      { name: 'Projects', href: '/projects' }
+      { name: "Workflow Map", href: "/#workflow" },
+      { name: "Projects", href: "/projects" },
     ],
     service: [
+ main
+      { name: "Our Service", href: "/contact" },
+      { name: "Pricing", href: "/#pricing" },
+      { name: "FAQs", href: "#faqs" },
+
       { name: 'Our Service', href: '/contact' },
       { name: 'Pricing', href: '/#pricing' },
       { name: 'FAQs', href: '/service#faqs' }
+ main
     ],
-    insight: [
-      { name: 'Contact', href: '/contact' }
-    ]
+    insight: [{ name: "Contact", href: "/contact" }],
   };
 
   const socialLinks = [
     {
-      name: 'LinkedIn',
-      href: 'https://www.linkedin.com/company/new-age-ai-products-and-services/',
-      icon: "https://api.builder.io/api/v1/image/assets/TEMP/5e1030e774d0cfa89ecf14f45cc34f230db8c682?placeholderIfAbsent=true"
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/company/new-age-ai-products-and-services/",
     },
     {
-      name: 'Twitter',
-      href: '#',
-      icon: "https://api.builder.io/api/v1/image/assets/TEMP/fbca29055cc4251d2e3172b3d7246bee6e3745f4?placeholderIfAbsent=true"
-    }
+      name: "Email",
+      href: "mailto:info@newageai.com", // IMPORTANT: Replace with your actual email
+      customIcon:
+        "https://cdn.builder.io/api/v1/image/assets/TEMP/fbca29055cc4251d2e3172b3d7246bee6e3745f4?placeholderIfAbsent=true",
+    },
+    {
+      name: "WhatsApp",
+      href: "https://whatsapp.com/jaketrent",
+    },
   ];
 
   return (
@@ -40,79 +49,104 @@ const Footer = () => {
                 alt="New Age AI Logo"
                 className="aspect-[1] object-contain w-[72px] self-stretch shrink-0 my-auto rounded-[34px]"
               />
-              <div className="bg-clip-text self-stretch my-auto">
+              <div className="bg-clip-text bg-gradient-to-r from-[#103295] to-[#1fb2f8] text-transparent self-stretch my-auto">
                 New Age AI
               </div>
             </div>
-            <p className="text-base leading-[1.3] tracking-[-0.32px] bg-clip-text mt-2">
+            <p className="text-lg leading-[1.3] tracking-[-0.32px] bg-clip-text bg-gradient-to-r from-[#103295] to-[#1fb2f8] text-transparent mt-2">
               We work best with fast-moving
             </p>
           </div>
-          
+
           <div className="flex items-center gap-6 mt-14 max-md:mt-10">
-            {socialLinks.map((social) => (
-              <a
-                key={social.name}
-                href={social.href}
-                aria-label={social.name}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-75 transition-opacity"
-              >
-                <img
-                  src={social.icon}
-                  alt={social.name}
-                  className="aspect-[1] object-contain w-6 self-stretch shrink-0 my-auto"
+            {socialLinks.map((social) =>
+              // If a customIcon is provided, use it. Otherwise, use SocialIcon.
+              social.customIcon ? (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  aria-label={social.name}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-75 transition-opacity"
+                >
+                  <img
+                    src={social.customIcon}
+                    alt={`${social.name} icon`}
+                    style={{ height: 40, width: 40 }}
+                  />
+                </a>
+              ) : (
+                <SocialIcon
+                  key={social.name}
+                  url={social.href}
+                  aria-label={social.name}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ height: 40, width: 40 }}
+                  className="hover:opacity-75 transition-opacity"
                 />
-              </a>
-            ))}
+              )
+            )}
           </div>
         </div>
-        
-        <nav className="flex min-w-60 gap-10 text-base text-black font-medium tracking-[-0.08px] leading-none max-md:max-w-full">
-          <div className="flex flex-col items-stretch justify-center w-[130px]">
-            <div className="flex w-full text-black font-semibold whitespace-nowrap pb-4">
-              <h3>Company</h3>
-            </div>
-            {navigationLinks.company.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="mt-2 hover:text-blue-600 transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
+
+        <nav className="flex flex-col md:flex-row md:gap-10 text-base">
+          {/* Company Column */}
+          <div className="flex flex-col mb-8 md:mb-0">
+            <h3 className="font-semibold text-black pb-4">Company</h3>
+            <a
+              href="#"
+              className="text-gray-500 mt-3 hover:text-blue-600 transition-colors"
+            >
+              Workflow Map
+            </a>
+            <a
+              href="#"
+              className="text-gray-500 mt-3 hover:text-blue-600 transition-colors"
+            >
+              Projects
+            </a>
           </div>
-          
-          <div className="flex flex-col items-stretch justify-center w-[130px]">
-            <div className="flex w-full text-black font-semibold whitespace-nowrap pb-4">
-              <h3>Service</h3>
-            </div>
-            {navigationLinks.service.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="mt-2 hover:text-blue-600 transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
+
+          {/* Service Column */}
+          <div className="flex flex-col mb-8 md:mb-0">
+            <h3 className="font-semibold text-black pb-4">Service</h3>
+            <a
+              href="#"
+              className="text-gray-500 mt-3 hover:text-blue-600 transition-colors"
+            >
+              Our Service
+            </a>
+            <a
+              href="#"
+              className="text-gray-500 mt-3 hover:text-blue-600 transition-colors"
+            >
+              Pricing
+            </a>
+            <a
+              href="#"
+              className="text-gray-500 mt-3 hover:text-blue-600 transition-colors"
+            >
+              FAQs
+            </a>
           </div>
-          
-          <div className="flex flex-col items-stretch justify-center w-[130px]">
-            <div className="flex w-full text-black font-semibold whitespace-nowrap pb-4">
-              <h3>Insight</h3>
-            </div>
-            {navigationLinks.insight.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="mt-2 hover:text-blue-600 transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
+
+          {/* Insight Column */}
+          <div className="flex flex-col">
+            <h3 className="font-semibold text-black pb-4">Insight</h3>
+            <a
+              href="#"
+              className="text-gray-500 mt-3 hover:text-blue-600 transition-colors"
+            >
+              Contact
+            </a>
+            <a
+              href="#"
+              className="text-gray-500 mt-3 hover:text-blue-600 transition-colors"
+            >
+              Best practices
+            </a>
           </div>
         </nav>
       </div>

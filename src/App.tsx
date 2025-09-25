@@ -10,6 +10,7 @@ import Service from "./pages/Service";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
+import Home from "./pages/Home";
 
 const queryClient = new QueryClient();
 
@@ -17,17 +18,17 @@ const ScrollToHash: React.FC = () => {
   useEffect(() => {
     const handle = () => {
       if (window.location.hash) {
-        const id = window.location.hash.replace('#', '');
+        const id = window.location.hash.replace("#", "");
         const el = document.getElementById(id);
         if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
+          el.scrollIntoView({ behavior: "smooth" });
         }
       }
     };
     // run on mount and on hash changes
     handle();
-    window.addEventListener('hashchange', handle);
-    return () => window.removeEventListener('hashchange', handle);
+    window.addEventListener("hashchange", handle);
+    return () => window.removeEventListener("hashchange", handle);
   }, []);
   return null;
 };
@@ -41,6 +42,7 @@ const App = () => (
         <ScrollToHash />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/service" element={<Service />} />
