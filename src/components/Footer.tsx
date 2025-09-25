@@ -9,7 +9,7 @@ const Footer = () => {
     service: [
       { name: 'Our Service', href: '/contact' },
       { name: 'Pricing', href: '/#pricing' },
-      { name: 'FAQs', href: '#faqs' }
+      { name: 'FAQs', href: '/service#faqs' }
     ],
     insight: [
       { name: 'Contact', href: '/contact' }

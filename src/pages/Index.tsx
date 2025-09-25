@@ -16,7 +16,7 @@ import howItWorks03 from '@/assets/how-it-works-03.png';
 const Index = () => {
   return (
     <div className="flex flex-col px-20 max-md:pl-5">
-      <div className="w-full max-w-screen-xl overflow-hidden bg-[#FCFCFF] max-md:max-w-full">
+      <div className="w-full max-w-screen-xl overflow-hidden bg-[#FCFCFF] max-md:max-w-full mx-auto">
         <Header />
         
         <main>
