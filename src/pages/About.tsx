@@ -18,7 +18,7 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="w-full">
+      <main className="w-full pt-10">
         {/* Hero Section */}
         <section className="relative h-[500px] sm:h-[450px] md:h-[500px] lg:h-[600px] p-6 sm:p-10 md:p-16">
           {/* Desktop Image */}
