@@ -56,7 +56,7 @@ const Hero = () => {
 
           <button
             onClick={handleSeePricing}
-            className="relative justify-center items-center self-stretch flex min-h-14 gap-2 text-[#0F288D] my-auto px-4 py-3.5 rounded-xl border-2 border-transparent bg-white hover:bg-[#0F288D] hover:text-white transition-all transform hover:scale-105 overflow-hidden"
+            className="relative justify-center items-center self-stretch flex min-h-14 gap-2 text-[#0F288D] my-auto px-4 py-3.5 rounded-xl border-2 border-transparent bg-white hover:bg-[#0F288D] transition-all transform hover:scale-105 overflow-hidden"
           >
             <span className="relative self-stretch my-auto z-10">
               See Pricing
