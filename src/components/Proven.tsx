@@ -1,6 +1,7 @@
 import React from "react";
 import aiSystemImage from "../assets/AI_system.png";
 import mobileImage from "../assets/mobile.png";
+import { NavLink } from "react-router-dom";
 
 const Proven = () => {
   return (
@@ -58,9 +59,14 @@ const Proven = () => {
         </div>
       </div>
 
-      <button className="px-8 py-3 text-lg font-semibold text-blue-800 bg-white border-2 border-blue-400 rounded-xl hover:bg-blue-50 transition-colors">
-        See All Projects
-      </button>
+      <NavLink
+        to="/projects"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      >
+        <button className="px-8 py-3 text-lg font-semibold text-blue-800 bg-white border-2 border-blue-400 rounded-xl hover:bg-blue-50 transition-colors">
+          See All Projects
+        </button>
+      </NavLink>
     </section>
   );
 };

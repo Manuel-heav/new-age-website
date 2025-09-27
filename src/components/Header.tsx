@@ -3,6 +3,12 @@ import { NavLink } from "react-router-dom";
 import { Sling as Hamburger } from "hamburger-react";
 
 const Header = () => {
+  const handleBookCall = (planName: string) => {
+    // Handle booking call for specific plan
+    console.log(`Booking call for ${planName}`);
+    window.location.href = "/contact#meeting";
+  };
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const activeLinkStyle = {
@@ -57,7 +63,7 @@ const Header = () => {
           className="text-[#130231] hover:text-blue-600 transition-colors py-2 md:py-0"
           style={({ isActive }) => (isActive ? activeLinkStyle : undefined)}
         >
-          Service
+          Services
         </NavLink>
         <NavLink
           to="/contact"
@@ -67,7 +73,10 @@ const Header = () => {
           Contact
         </NavLink>
 
-        <button className="justify-center items-center flex min-h-12 gap-2 text-base text-[#FCFCFF] tracking-[-0.08px] px-4 py-[13px] rounded-[11.25px] bg-gradient-to-r from-[#0f288d] to-[#1fbcff] hover:from-[#0c2073] hover:to-[#17a2e5] transition-all w-full md:w-auto mt-4 md:mt-0">
+        <button
+          onClick={() => handleBookCall("Contact Now")}
+          className="justify-center items-center flex min-h-12 gap-2 text-base text-[#FCFCFF] tracking-[-0.08px] px-4 py-[13px] rounded-[11.25px] bg-gradient-to-r from-[#0f288d] to-[#1fbcff] hover:from-[#0c2073] hover:to-[#17a2e5] transition-all w-full md:w-auto mt-4 md:mt-0"
+        >
           <span className="text-[#FCFCFF] font-normal">Contact Now</span>
         </button>
       </nav>
