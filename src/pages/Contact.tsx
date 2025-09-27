@@ -86,7 +86,10 @@ const Contact = () => {
         </div>
 
         {/* Fast No Code Section */}
-        <section className="max-w-7xl mx-auto flex items-center justify-center px-6 py-16 md:px-16 lg:px-20 mb-28 md:rounded-3xl">
+        <section
+          id="meeting"
+          className="max-w-7xl mx-auto flex items-center justify-center px-6 py-16 md:px-16 lg:px-20 mb-28 md:rounded-3xl"
+        >
           <div className="w-full">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Image first on mobile */}

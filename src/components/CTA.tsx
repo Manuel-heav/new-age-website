@@ -36,6 +36,7 @@ const CTA = () => {
   const handleBookCall = () => {
     // Handle book call action
     console.log("Booking strategy call...");
+    window.location.href = "/contact#meeting";
   };
 
   return (

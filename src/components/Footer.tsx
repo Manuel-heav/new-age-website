@@ -1,5 +1,6 @@
 import React from "react";
 import { SocialIcon } from "react-social-icons";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   const navigationLinks = {
@@ -8,14 +9,14 @@ const Footer = () => {
       { name: "Projects", href: "/projects" },
     ],
     service: [
-      { name: "Our Service", href: "/contact" },
+      { name: "Our Service", href: "/service" },
       { name: "Pricing", href: "/#pricing" },
-      { name: "FAQs", href: "#faqs" },
-      { name: "Our Service", href: "/contact" },
-      { name: "Pricing", href: "/#pricing" },
-      { name: "FAQs", href: "/service#faqs" },
+      { name: "FAQs", href: "/service/#faqs" },
     ],
-    insight: [{ name: "Contact", href: "/contact" }],
+    insight: [
+      { name: "Contact", href: "/contact" },
+      { name: "Best practices", href: "/#" },
+    ],
   };
 
   const socialLinks = [
@@ -25,7 +26,7 @@ const Footer = () => {
     },
     {
       name: "Email",
-      href: "mailto:info@newageai.com", // IMPORTANT: Replace with your actual email
+      href: "mailto:info@newageai.com",
       customIcon:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/fbca29055cc4251d2e3172b3d7246bee6e3745f4?placeholderIfAbsent=true",
     },
@@ -34,6 +35,9 @@ const Footer = () => {
       href: "https://whatsapp.com/jaketrent",
     },
   ];
+
+  // Helper function to decide if link is internal
+  const isInternal = (href) => href.startsWith("/");
 
   return (
     <footer className="justify-center items-center flex min-h-[466px] w-full gap-[40px_96px] overflow-hidden bg-[#FCFCFF] pb-[120px] px-16 max-md:max-w-full max-md:pb-[100px] max-md:px-5">
@@ -57,7 +61,6 @@ const Footer = () => {
 
           <div className="flex items-center gap-6 mt-14 max-md:mt-10">
             {socialLinks.map((social) =>
-              // If a customIcon is provided, use it. Otherwise, use SocialIcon.
               social.customIcon ? (
                 <a
                   key={social.name}
@@ -89,62 +92,45 @@ const Footer = () => {
         </div>
 
         <nav className="flex flex-col md:flex-row md:gap-10 text-base">
-          {/* Company Column */}
-          <div className="flex flex-col mb-8 md:mb-0">
-            <h3 className="font-semibold text-black pb-4">Company</h3>
-            <a
-              href="#"
-              className="text-gray-500 mt-3 hover:text-blue-600 transition-colors"
-            >
-              Workflow Map
-            </a>
-            <a
-              href="#"
-              className="text-gray-500 mt-3 hover:text-blue-600 transition-colors"
-            >
-              Projects
-            </a>
-          </div>
+          {/* Dynamically render columns */}
+          {Object.entries(navigationLinks).map(([category, links]) => (
+            <div key={category} className="flex flex-col mb-8 md:mb-0">
+              <h3 className="font-semibold text-black pb-4">
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+              </h3>
+              {links.map((link) => {
+                // Scroll to top for specific pages
+                const handleClick = () => {
+                  if (
+                    ["Projects", "Contact", "Our Service"].includes(link.name)
+                  ) {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
+                };
 
-          {/* Service Column */}
-          <div className="flex flex-col mb-8 md:mb-0">
-            <h3 className="font-semibold text-black pb-4">Service</h3>
-            <a
-              href="#"
-              className="text-gray-500 mt-3 hover:text-blue-600 transition-colors"
-            >
-              Our Service
-            </a>
-            <a
-              href="#"
-              className="text-gray-500 mt-3 hover:text-blue-600 transition-colors"
-            >
-              Pricing
-            </a>
-            <a
-              href="#"
-              className="text-gray-500 mt-3 hover:text-blue-600 transition-colors"
-            >
-              FAQs
-            </a>
-          </div>
-
-          {/* Insight Column */}
-          <div className="flex flex-col">
-            <h3 className="font-semibold text-black pb-4">Insight</h3>
-            <a
-              href="#"
-              className="text-gray-500 mt-3 hover:text-blue-600 transition-colors"
-            >
-              Contact
-            </a>
-            <a
-              href="#"
-              className="text-gray-500 mt-3 hover:text-blue-600 transition-colors"
-            >
-              Best practices
-            </a>
-          </div>
+                return isInternal(link.href) ? (
+                  <NavLink
+                    key={link.name}
+                    to={link.href}
+                    onClick={handleClick}
+                    className="text-gray-500 mt-3 hover:text-blue-600 transition-colors"
+                  >
+                    {link.name}
+                  </NavLink>
+                ) : (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="text-gray-500 mt-3 hover:text-blue-600 transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link.name}
+                  </a>
+                );
+              })}
+            </div>
+          ))}
         </nav>
       </div>
     </footer>

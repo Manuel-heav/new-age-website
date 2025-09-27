@@ -18,6 +18,16 @@ import Results from "@/components/Results";
 import CTA from "@/components/CTA";
 
 const Service = () => {
+  const handleBookCall = () => {
+    // Handle book call action
+    console.log("Booking strategy call...");
+    window.location.href = "/contact#meeting";
+  };
+
+  const handleSeePricing = () => {
+    window.location.href = "/home#pricing";
+  };
+
   const faqItems = [
     {
       question:
@@ -150,14 +160,20 @@ const Service = () => {
           {/* Buttons */}
           <div className="relative mt-12 md:absolute md:bottom-4 md:left-1/2 md:transform md:-translate-x-1/2 md:mt-0 w-full flex flex-row justify-center items-center gap-6 px-6">
             {/* Filled gradient (Book) - gradient on inner span */}
-            <button className="relative px-0.5 py-0.5 rounded-lg w-full sm:w-auto bg-transparent">
+            <button
+              onClick={handleBookCall}
+              className="relative px-0.5 py-0.5 rounded-lg w-full sm:w-auto bg-transparent"
+            >
               <span className="block rounded-md px-8 py-4 font-semibold text-lg bg-gradient-to-r from-[#103295] to-[#1fb2f8] text-white text-center">
                 Book Strategy Call
               </span>
             </button>
 
             {/* Bordered gradient (Pricing) - gradient on outer, white inner */}
-            <button className="relative px-0.5 py-0.5 rounded-lg w-full sm:w-auto bg-gradient-to-r from-[#102a8e] to-[#1fb4f9]">
+            <button
+              onClick={handleSeePricing}
+              className="relative px-0.5 py-0.5 rounded-lg w-full sm:w-auto bg-gradient-to-r from-[#102a8e] to-[#1fb4f9]"
+            >
               <span className="block bg-white rounded-md px-8 py-4 font-semibold text-lg text-[#0f288d] text-center">
                 See Pricing
               </span>

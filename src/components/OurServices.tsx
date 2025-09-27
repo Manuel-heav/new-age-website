@@ -9,6 +9,12 @@ import RightArrow from "@/assets/next-right.png";
 import { NavigationOptions } from "swiper/types";
 
 const OurServices = () => {
+  const handleBookCall = () => {
+    // Handle book call action
+    console.log("Booking strategy call...");
+    window.location.href = "/contact#meeting";
+  };
+
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
@@ -142,7 +148,10 @@ const OurServices = () => {
                       <span className="text-[#9b9b9b]">$ </span>
                       {service.price}
                     </div>
-                    <button className="w-full sm:w-auto px-6 bg-gradient-to-r from-[#103295] to-[#1fb2f8] text-white py-2 rounded-lg hover:from-[#0d2a7b] hover:to-[#1798de] transition-all">
+                    <button
+                      onClick={handleBookCall}
+                      className="w-full sm:w-auto px-6 bg-gradient-to-r from-[#103295] to-[#1fb2f8] text-white py-2 rounded-lg hover:from-[#0d2a7b] hover:to-[#1798de] transition-all"
+                    >
                       Book Now
                     </button>
                   </div>

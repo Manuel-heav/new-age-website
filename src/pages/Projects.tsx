@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import { useState, useEffect, useRef } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import phoneOneSmall from "@/assets/phone-mockup-preview-SMALL.png";
@@ -7,16 +9,44 @@ import phoneTwoSmall from "@/assets/phone-mockup-preview-SMALL-second.png";
 import phoneTwoBig from "@/assets/phone-mockup-preview-BIG-second.png";
 import phoneThreeSmall from "@/assets/phone-mockup-preview-SMALL-third.png";
 import phoneThreeBig from "@/assets/phone-mockup-preview-BIG-third.png";
-import aiChipBlue from "@/assets/ai-chip-blue.jpg";
-import ctaHandshake from "@/assets/cta-handshake.png";
 import aiTechImage from "@/assets/ai-tech-new.png";
 import CTA from "@/components/CTA";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
 
 const Projects = () => {
+  const [clickedPhone, setClickedPhone] = useState(null);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const iframeRefs = useRef([]);
+
+  const youtubeLinks = [
+    "https://www.youtube.com/embed/8Dq-56hD3Fo?autoplay=1&mute=1&enablejsapi=1",
+    "https://www.youtube.com/embed/X3tr5ax78V4?autoplay=1&mute=1&enablejsapi=1",
+    "https://www.youtube.com/embed/xQknAlRnaM4?autoplay=1&mute=1&enablejsapi=1",
+  ];
+
+  useEffect(() => {
+    if (clickedPhone !== null) {
+      const timer = setTimeout(() => {
+        const nextIndex = (currentVideoIndex + 1) % youtubeLinks.length;
+        setCurrentVideoIndex(nextIndex);
+
+        const iframe = iframeRefs.current[clickedPhone];
+        if (iframe) {
+          iframe.src = youtubeLinks[nextIndex];
+        }
+      }, 10000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [clickedPhone, currentVideoIndex, youtubeLinks]);
+
+  const handlePhoneClick = (idx) => {
+    setClickedPhone(idx);
+    setCurrentVideoIndex(0);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -40,79 +70,89 @@ const Projects = () => {
 
         {/* Phone Mockups Section */}
         <section className="py-16 mb-10 bg-white relative">
-          {/* Vertical center strip */}
-          <div className="absolute inset-0 flex items-center">
-            <div className="h-64 w-full bg-[#dff6ff]"></div>
-          </div>
-
           <div className="relative mx-auto">
             {/* Desktop / Tablet */}
             <div className="hidden md:flex items-center justify-center space-x-4">
-              <div className="w-1/4">
-                <img src={phoneTwoBig} alt="phone 1" className="w-full" />
-              </div>
-              <div className="w-1/3">
-                <img src={phoneThreeBig} alt="phone 2" className="w-full" />
-              </div>
-              <div className="w-1/4">
-                <img src={phoneOneBig} alt="phone 3" className="w-full" />
-              </div>
+              {[phoneTwoBig, phoneThreeBig, phoneOneBig].map((img, idx) => (
+                <div key={idx} className={idx === 1 ? "w-1/3" : "w-1/4"}>
+                  {clickedPhone === idx ? (
+                    <div
+                      className="relative w-full"
+                      style={{ aspectRatio: "9/19.5" }}
+                    >
+                      <iframe
+                        ref={(el) => (iframeRefs.current[idx] = el)}
+                        className="w-full h-full rounded-[2.5rem] shadow-2xl border-8 border-gray-800"
+                        src={`${
+                          youtubeLinks[currentVideoIndex]
+                        }&t=${Date.now()}`}
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  ) : (
+                    <img
+                      src={img || "/placeholder.svg"}
+                      alt={`phone ${idx + 1}`}
+                      className="w-full cursor-pointer"
+                      onClick={() => handlePhoneClick(idx)}
+                    />
+                  )}
+                </div>
+              ))}
             </div>
 
-            {/* Mobile: swipeable peek carousel */}
+            {/* Mobile Swiper */}
             <div className="md:hidden">
               <Swiper
                 spaceBetween={16}
                 slidesPerView={"auto"}
                 centeredSlides={true}
-                initialSlide={1} // center the middle slide on load
+                initialSlide={1}
                 grabCursor={true}
                 className="w-full py-20"
               >
-                <SwiperSlide
-                  className={
-                    "!w-[50%] flex justify-center transition-transform duration-300 " +
-                    "[&.swiper-slide-active]:scale-150 [&.swiper-slide-active]:z-30 " +
-                    "[&.swiper-slide-active]:opacity-100 [&:not(.swiper-slide-active)]:opacity-60 " +
-                    "[&:not(.swiper-slide-active)]:scale-90"
-                  }
-                >
-                  <img
-                    src={phoneTwoSmall}
-                    alt="phone one"
-                    className="w-full h-auto object-contain"
-                  />
-                </SwiperSlide>
-
-                <SwiperSlide
-                  className={
-                    "!w-[50%] flex justify-center transition-transform duration-300 " +
-                    "[&.swiper-slide-active]:scale-150 [&.swiper-slide-active]:z-30 " +
-                    "[&.swiper-slide-active]:opacity-100 [&:not(.swiper-slide-active)]:opacity-60 " +
-                    "[&:not(.swiper-slide-active)]:scale-90"
-                  }
-                >
-                  <img
-                    src={phoneThreeSmall}
-                    alt="phone two (center)"
-                    className="w-full h-auto object-contain"
-                  />
-                </SwiperSlide>
-
-                <SwiperSlide
-                  className={
-                    "!w-[50%] flex justify-center transition-transform duration-300 " +
-                    "[&.swiper-slide-active]:scale-150 [&.swiper-slide-active]:z-30 " +
-                    "[&.swiper-slide-active]:opacity-100 [&:not(.swiper-slide-active)]:opacity-60 " +
-                    "[&:not(.swiper-slide-active)]:scale-90"
-                  }
-                >
-                  <img
-                    src={phoneOneSmall}
-                    alt="phone three"
-                    className="w-full h-auto object-contain"
-                  />
-                </SwiperSlide>
+                {[phoneTwoSmall, phoneThreeSmall, phoneOneSmall].map(
+                  (img, idx) => (
+                    <SwiperSlide
+                      key={idx}
+                      className={
+                        "!w-[50%] flex justify-center transition-transform duration-300 " +
+                        "[&.swiper-slide-active]:scale-150 [&.swiper-slide-active]:z-30 " +
+                        "[&.swiper-slide-active]:opacity-100 [&:not(.swiper-slide-active)]:opacity-60 " +
+                        "[&:not(.swiper-slide-active)]:scale-90"
+                      }
+                    >
+                      {clickedPhone === idx ? (
+                        <div
+                          className="relative w-full"
+                          style={{ aspectRatio: "9/19.5" }}
+                        >
+                          <iframe
+                            ref={(el) => (iframeRefs.current[idx] = el)}
+                            className="w-full h-full rounded-[1.5rem] shadow-xl border-4 border-gray-800"
+                            src={`${
+                              youtubeLinks[currentVideoIndex]
+                            }&t=${Date.now()}`}
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          ></iframe>
+                        </div>
+                      ) : (
+                        <img
+                          src={img || "/placeholder.svg"}
+                          alt={`phone ${idx + 1}`}
+                          className="w-full h-auto object-contain cursor-pointer"
+                          onClick={() => handlePhoneClick(idx)}
+                        />
+                      )}
+                    </SwiperSlide>
+                  )
+                )}
               </Swiper>
             </div>
           </div>
@@ -125,7 +165,7 @@ const Projects = () => {
               {/* Image first on mobile */}
               <div className="flex justify-center order-1 md:order-2">
                 <img
-                  src={aiTechImage}
+                  src={aiTechImage || "/placeholder.svg"}
                   alt="AI Automation Technology"
                   className="w-full max-w-md rounded-2xl shadow-lg"
                 />
@@ -153,7 +193,7 @@ const Projects = () => {
               {/* Image always first */}
               <div className="flex justify-center">
                 <img
-                  src={aiTechImage}
+                  src={aiTechImage || "/placeholder.svg"}
                   alt="AI Automation Technology"
                   className="w-full max-w-md rounded-2xl shadow-lg"
                 />

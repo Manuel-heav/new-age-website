@@ -9,6 +9,12 @@ import contactTablet from "../assets/contact-tablet.png";
 import contactMobile from "../assets/contact-mobile.png";
 
 const GetInTouch = () => {
+  const handleBookCall = () => {
+    // Handle book call action
+    console.log("Booking strategy call...");
+    window.location.href = "/contact#meeting";
+  };
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -151,6 +157,7 @@ const GetInTouch = () => {
             </div>
             <div className="flex justify-end">
               <Button
+                onClick={handleBookCall}
                 type="submit"
                 className="w-full sm:w-40 h-16 bg-gradient-to-r from-[#103395] to-[#1eb0f5] text-white text-base font-semibold rounded-lg hover:opacity-90 transition-opacity"
               >

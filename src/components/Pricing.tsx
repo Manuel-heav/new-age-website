@@ -59,7 +59,7 @@ const Pricing = () => {
   const handleBookCall = (planName: string) => {
     // Handle booking call for specific plan
     console.log(`Booking call for ${planName}`);
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    window.location.href = "/contact#meeting";
   };
 
   return (
