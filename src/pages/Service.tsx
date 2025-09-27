@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import {
   Accordion,
   AccordionContent,
@@ -198,7 +197,7 @@ const Service = () => {
         </div>
 
         {/* FAQ Section */}
-        <section className="px-16 py-16 max-md:px-5">
+        <section id="faqs" className="px-16 py-16 max-md:px-5">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-semibold text-center text-[#130231] mb-12">
               FAQs
