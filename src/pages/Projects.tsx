@@ -1,11 +1,20 @@
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import phoneMockups from "@/assets/phone-mockups.png";
+import phoneOneSmall from "@/assets/phone-mockup-preview-SMALL.png";
+import phoneOneBig from "@/assets/phone-mockup-preview-BIG.png";
+import phoneTwoSmall from "@/assets/phone-mockup-preview-SMALL-second.png";
+import phoneTwoBig from "@/assets/phone-mockup-preview-BIG-second.png";
+import phoneThreeSmall from "@/assets/phone-mockup-preview-SMALL-third.png";
+import phoneThreeBig from "@/assets/phone-mockup-preview-BIG-third.png";
 import aiChipBlue from "@/assets/ai-chip-blue.jpg";
 import ctaHandshake from "@/assets/cta-handshake.png";
 import aiTechImage from "@/assets/ai-tech-new.png";
 import CTA from "@/components/CTA";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
 
 const Projects = () => {
   return (
@@ -30,13 +39,82 @@ const Projects = () => {
         </section>
 
         {/* Phone Mockups Section */}
-        <section className="bg-white px-6 py-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <img
-              src={phoneMockups}
-              alt="AI Chat, Email Builder, and Business Dashboard Apps"
-              className="w-full max-w-3xl mx-auto"
-            />
+        <section className="py-16 mb-10 bg-white relative">
+          {/* Vertical center strip */}
+          <div className="absolute inset-0 flex items-center">
+            <div className="h-64 w-full bg-[#dff6ff]"></div>
+          </div>
+
+          <div className="relative mx-auto">
+            {/* Desktop / Tablet */}
+            <div className="hidden md:flex items-center justify-center space-x-4">
+              <div className="w-1/4">
+                <img src={phoneTwoBig} alt="phone 1" className="w-full" />
+              </div>
+              <div className="w-1/3">
+                <img src={phoneThreeBig} alt="phone 2" className="w-full" />
+              </div>
+              <div className="w-1/4">
+                <img src={phoneOneBig} alt="phone 3" className="w-full" />
+              </div>
+            </div>
+
+            {/* Mobile: swipeable peek carousel */}
+            <div className="md:hidden">
+              <Swiper
+                spaceBetween={16}
+                slidesPerView={"auto"}
+                centeredSlides={true}
+                initialSlide={1} // center the middle slide on load
+                grabCursor={true}
+                className="w-full py-20"
+              >
+                <SwiperSlide
+                  className={
+                    "!w-[50%] flex justify-center transition-transform duration-300 " +
+                    "[&.swiper-slide-active]:scale-150 [&.swiper-slide-active]:z-30 " +
+                    "[&.swiper-slide-active]:opacity-100 [&:not(.swiper-slide-active)]:opacity-60 " +
+                    "[&:not(.swiper-slide-active)]:scale-90"
+                  }
+                >
+                  <img
+                    src={phoneTwoSmall}
+                    alt="phone one"
+                    className="w-full h-auto object-contain"
+                  />
+                </SwiperSlide>
+
+                <SwiperSlide
+                  className={
+                    "!w-[50%] flex justify-center transition-transform duration-300 " +
+                    "[&.swiper-slide-active]:scale-150 [&.swiper-slide-active]:z-30 " +
+                    "[&.swiper-slide-active]:opacity-100 [&:not(.swiper-slide-active)]:opacity-60 " +
+                    "[&:not(.swiper-slide-active)]:scale-90"
+                  }
+                >
+                  <img
+                    src={phoneThreeSmall}
+                    alt="phone two (center)"
+                    className="w-full h-auto object-contain"
+                  />
+                </SwiperSlide>
+
+                <SwiperSlide
+                  className={
+                    "!w-[50%] flex justify-center transition-transform duration-300 " +
+                    "[&.swiper-slide-active]:scale-150 [&.swiper-slide-active]:z-30 " +
+                    "[&.swiper-slide-active]:opacity-100 [&:not(.swiper-slide-active)]:opacity-60 " +
+                    "[&:not(.swiper-slide-active)]:scale-90"
+                  }
+                >
+                  <img
+                    src={phoneOneSmall}
+                    alt="phone three"
+                    className="w-full h-auto object-contain"
+                  />
+                </SwiperSlide>
+              </Swiper>
+            </div>
           </div>
         </section>
 

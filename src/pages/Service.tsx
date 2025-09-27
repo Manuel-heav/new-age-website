@@ -19,76 +19,98 @@ import Results from "@/components/Results";
 import CTA from "@/components/CTA";
 
 const Service = () => {
-  const automationCards = [
-    {
-      title: "AI Strategy Call",
-      subtitle: "First time buyers, Solopreneur",
-      price: "Try for Free!",
-      features: [
-        "60mins consultation with AI Expert",
-        "Tech stack audit of current workflows",
-        "3 Automation ideas tailored to the business",
-        "Action plan PDF sent post call",
-      ],
-      buttonText: "Book a Call",
-      highlight: true,
-    },
-    {
-      title: "AI Setup Starter",
-      subtitle: "SMBs or Consultant wanting small AI helps",
-      price: "$250",
-      features: [
-        "1 Basic app automation",
-        "Show them N8N & Zapier workflows for automation",
-        "Build a custom workflow & Offer Bundled Templates",
-      ],
-      buttonText: "Book a Call",
-    },
-    {
-      title: "AI Full Automation",
-      subtitle: "Business with repetitive ops.",
-      price: "$750 - $1200",
-      features: [
-        "End-to-end AI orchestration and implementation",
-        "2 Weeks maintenance included i.e implementation in client systems, training them, resolving any",
-      ],
-      buttonText: "Book a Call",
-    },
-    {
-      title: "AI Custom Build",
-      subtitle: "Enterprise & Custom Solutions",
-      price: "Custom Quote",
-      features: [
-        "Fully customized AI solutions",
-        "Dedicated project manager",
-        "24/7 support and maintenance",
-      ],
-      buttonText: "Get Quote",
-    },
-  ];
-
   const faqItems = [
     {
-      question: "Question 1",
+      question:
+        "How quickly will I get a response after filling out the inquiry form?",
       answer:
-        "This is the answer to question 1 about our AI automation services.",
+        "You’ll receive a response within 24 hours to schedule your discovery call.",
     },
     {
-      question: "Question 1",
+      question: "What happens during the discovery call?",
       answer:
-        "This is another answer explaining our processes and methodologies.",
+        "We run a 30-minute call to understand your business goals, challenges, and existing processes. Based on that, we recommend the best AI solution tailored to your needs.",
     },
     {
-      question: "Question 1",
-      answer: "Here we explain more details about our service offerings.",
+      question: "Can I test the workflow before it goes live?",
+      answer:
+        "Yes, we build and test workflows in a sandbox environment first to ensure they work without impacting your real data.",
     },
     {
-      question: "Question 1",
-      answer: "Additional information about pricing and packages.",
+      question: "What tools do you use for feedback and internal testing?",
+      answer:
+        "We use Loom videos to explain the workflow logic and gather QA feedback before finalization.",
     },
     {
-      question: "Question 1",
-      answer: "More details about implementation and support.",
+      question: "How do I provide feedback after delivery?",
+      answer:
+        "You can share feedback through our feedback form. We also explore upgrades, retainers, or featuring your workflow as a case study based on your experience.",
+    },
+    {
+      question: "Do you offer ongoing support after delivery?",
+      answer:
+        "Yes, we provide options for upgrades, maintenance retainers, and workflow improvements to support your growth.",
+    },
+    {
+      question: "Who owns the workflow once it’s delivered?",
+      answer:
+        "You have full ownership of the delivered workflow, including the documentation and setup provided.",
+    },
+    {
+      question:
+        "Can you integrate with my existing tools (e.g., Slack, CRM, Notion)?",
+      answer:
+        "Yes, our workflows are designed to integrate with your existing tools and platforms seamlessly.",
+    },
+    {
+      question: "How much does an AI project cost?",
+      answer:
+        "Pricing depends on the complexity, integrations, and level of customization required. We provide a transparent estimate after the discovery call.",
+    },
+    {
+      question: "How long will it take to implement my AI solution?",
+      answer:
+        "Most workflows are delivered within 2–6 weeks, depending on scope and integrations. Timelines are shared during the proposal stage.",
+    },
+    {
+      question: "Is my data safe with New Age AI?",
+      answer:
+        "Yes. We follow strict security and compliance practices. Your data is never shared outside your project and is only used for implementation.",
+    },
+    {
+      question: "Do you offer custom AI models or only pre-built workflows?",
+      answer:
+        "We build both—from no-code/low-code automations to custom-trained models—depending on your needs.",
+    },
+    {
+      question: "What industries do you specialize in?",
+      answer:
+        "We’re industry-agnostic and have worked across SaaS, eCommerce, professional services, and operations teams.",
+    },
+    {
+      question: "What’s the ROI of implementing AI workflows?",
+      answer:
+        "AI workflows typically save time, reduce manual errors, and scale operations at a lower cost. We help measure ROI by comparing pre- and post-implementation metrics.",
+    },
+    {
+      question: "Do you train our team on how to use the AI workflows?",
+      answer:
+        "Yes, we provide documentation, Loom walkthroughs, and optional live training sessions.",
+    },
+    {
+      question: "What happens if I need changes after the workflow is live?",
+      answer:
+        "You can request upgrades or adjustments anytime. We offer retainer packages for ongoing optimization.",
+    },
+    {
+      question: "Do you work with startups as well as established businesses?",
+      answer:
+        "Yes. We tailor our approach for early-stage startups through to established enterprises.",
+    },
+    {
+      question: "What makes New Age AI different from other AI agencies?",
+      answer:
+        "We deliver simple, scalable, and documented workflows with a hands-on approach so your team understands and benefits from the solution.",
     },
   ];
 

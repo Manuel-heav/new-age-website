@@ -67,11 +67,11 @@ const Pricing = () => {
       id="pricing"
       className="flex w-full flex-col items-stretch justify-center px-16 py-20 max-md:max-w-full max-md:px-5"
     >
-      <div className="self-center flex items-center gap-2 text-5xl text-center tracking-[-0.96px] flex-wrap max-md:max-w-full max-md:text-[40px]">
-        <h2 className="text-black font-medium self-stretch my-auto max-md:max-w-full max-md:text-[40px]">
+      <div className="self-center flex items-center justify-center gap-2 text-5xl text-center tracking-[-0.96px] flex-wrap max-md:max-w-full max-md:text-[40px]">
+        <h2 className="text-black font-medium max-md:text-[40px]">
           What do you want to
         </h2>
-        <h2 className="font-bold bg-clip-text bg-gradient-to-r from-[#103295] to-[#1fb2f8] text-transparent self-stretch my-auto max-md:text-[40px]">
+        <h2 className="font-bold bg-clip-text bg-gradient-to-r from-[#103295] to-[#1fb2f8] text-transparent max-md:text-[40px]">
           Automate?
         </h2>
       </div>

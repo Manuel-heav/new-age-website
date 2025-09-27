@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
@@ -30,6 +30,46 @@ const Contact = () => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     // Handle form submission
+  };
+
+  // Calendly assets loader
+  useEffect(() => {
+    // Inject Calendly stylesheet once
+    const cssHref = "https://assets.calendly.com/assets/external/widget.css";
+    if (!document.querySelector(`link[href='${cssHref}']`)) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = cssHref;
+      document.head.appendChild(link);
+    }
+
+    // Inject Calendly script once
+    const scriptSrc = "https://assets.calendly.com/assets/external/widget.js";
+    if (!document.querySelector(`script[src='${scriptSrc}']`)) {
+      const script = document.createElement("script");
+      script.src = scriptSrc;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
+  const handleOpenCalendly = () => {
+    const calendly: any = (window as any).Calendly;
+    if (calendly && typeof calendly.initPopupWidget === "function") {
+      calendly.initPopupWidget({
+        url: "https://calendly.com/sheilamaelabis/30min",
+      });
+    } else {
+      // If script hasn't loaded yet, try again shortly
+      setTimeout(() => {
+        const c2: any = (window as any).Calendly;
+        if (c2 && typeof c2.initPopupWidget === "function") {
+          c2.initPopupWidget({
+            url: "https://calendly.com/sheilamaelabis/30min",
+          });
+        }
+      }, 500);
+    }
   };
 
   return (
@@ -69,6 +109,7 @@ const Contact = () => {
                   your success.
                 </p>
                 <Button
+                  onClick={handleOpenCalendly}
                   size="lg"
                   className="mt-8 bg-gradient-to-r from-[#103295] to-[#1fb2f8] hover:from-[#0d2a7b] hover:to-[#1798de] px-8 transition-all rounded-xl"
                 >
