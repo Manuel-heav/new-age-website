@@ -2,17 +2,23 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import aiTechImage from "@/assets/ai-tech-new.png";
-import humanElementImage from "@/assets/human-element-new.jpg";
+import humanElementImage from "@/assets/human-element-new.png";
+import humanElementImageMobile from "@/assets/human-element-mobile.png";
 import aboutUsDesktop from "../assets/about-us-desktop.png";
 import aboutUsTablet from "../assets/about-us-tablet.png";
 import aboutUsMobile from "../assets/about-us-mobile.png";
+import Zapier from "../assets/Zapier-Logo-Small.png";
+import Make from "../assets/make-logo.png";
+import Quote from "../assets/about-us-quote.png";
+import Rocket from "../assets/rocket.png";
+import Brain from "../assets/brain.png";
 
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="w-full">
+      <main className="w-full pt-10">
         {/* Hero Section */}
         <section className="relative h-[500px] sm:h-[450px] md:h-[500px] lg:h-[600px] p-6 sm:p-10 md:p-16">
           {/* Desktop Image */}
@@ -109,12 +115,19 @@ const About = () => {
         </section>
 
         {/* Human Element Section */}
-        <section className="bg-white px-6 py-16 md:px-16 lg:px-20">
-          <div className="max-w-6xl mx-auto">
+        <section className="px-6 py-16 md:px-16 lg:px-20">
+          <div className="mx-auto">
+            {/* Mobile Image */}
+            <img
+              src={humanElementImageMobile}
+              alt="Human Element - We combine AI with human insight to truly understand your business needs"
+              className="block md:hidden w-full rounded-2xl shadow-lg"
+            />
+            {/* Tablet and Desktop Image */}
             <img
               src={humanElementImage}
               alt="Human Element - We combine AI with human insight to truly understand your business needs"
-              className="w-full rounded-2xl shadow-lg"
+              className="hidden md:block w-full rounded-2xl shadow-lg"
             />
           </div>
         </section>
@@ -122,51 +135,90 @@ const About = () => {
         {/* Tools Section */}
         <section className="bg-gray-50 px-6 py-16 md:px-16 lg:px-20">
           <div className="max-w-6xl mx-auto text-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-12">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#727273] mb-10">
               Tools
             </h3>
-            <div className="flex flex-wrap justify-center items-center gap-8">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-black rounded flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">GPT</span>
-                </div>
-                <span className="font-semibold">ChatGPT</span>
+
+            <div
+              className="
+        grid 
+        grid-cols-3 
+        gap-y-8 
+        gap-x-6
+        sm:grid-cols-3
+        md:flex md:flex-wrap md:justify-center md:items-center md:gap-x-12 lg:gap-x-16
+      "
+            >
+              {/* ChatGPT */}
+              <div className="flex flex-col md:flex-row items-center justify-center gap-x-3">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1200px-ChatGPT_logo.svg.png"
+                  alt="ChatGPT"
+                  className="h-12 md:h-9 mx-auto"
+                />
+                <span className="text-lg md:text-2xl font-bold text-black mt-2 md:mt-0">
+                  ChatGPT
+                </span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-orange-500 rounded flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">Z</span>
-                </div>
-                <span className="font-semibold">zapier</span>
+
+              {/* Zapier */}
+              <div className="flex flex-col md:flex-row items-center justify-center gap-x-3">
+                <img
+                  src={Zapier}
+                  alt="Zapier"
+                  className="h-20 md:h-40 mx-auto"
+                />
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">N</span>
-                </div>
-                <span className="font-semibold">Notion</span>
+
+              {/* Notion */}
+              <div className="flex flex-col md:flex-row items-center justify-center gap-x-3">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg"
+                  alt="Notion"
+                  className="h-12 md:h-9 mx-auto"
+                />
+                <span className="text-lg md:text-2xl font-bold text-black mt-2 md:mt-0">
+                  Notion
+                </span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">S</span>
-                </div>
-                <span className="font-semibold">slack</span>
+
+              {/* Slack */}
+              <div className="flex flex-col md:flex-row items-center justify-center gap-x-3">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg"
+                  alt="Slack"
+                  className="h-12 md:h-9 mx-auto"
+                />
+                <span className="text-lg md:text-2xl font-bold text-black mt-2 md:mt-0">
+                  Slack
+                </span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-purple-600 rounded flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">M</span>
-                </div>
-                <span className="font-semibold">make</span>
+
+              {/* Make */}
+              <div className="flex flex-col md:flex-row items-center justify-center gap-x-3">
+                <img src={Make} alt="Make" className="h-16 md:h-20 mx-auto" />
               </div>
             </div>
           </div>
         </section>
 
         {/* Target Audience Section */}
-        <section className="bg-gradient-to-br from-blue-600 to-purple-600 px-6 py-16 md:px-16 lg:px-20 text-white">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-xl md:text-2xl mb-8">
+        <section className="px-0 md:px-16 lg:px-20 py-16 flex flex-col items-center justify-center text-center">
+          <img
+            src={Quote}
+            alt="Quote"
+            className="mb-12 w-full h-48 sm:h-36 md:h-auto object-cover"
+          />
+          <div className="max-w-8xl mx-auto px-6 md:px-0">
+            <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-relaxed font-medium">
               We work best with fast-moving{" "}
-              <span className="text-blue-200 font-bold">Founders</span> and{" "}
-              <span className="text-blue-200 font-bold">Agencies</span>
+              <span className="bg-clip-text bg-gradient-to-r from-[#103295] to-[#1fb2f8] text-transparent font-bold">
+                Founders
+              </span>{" "}
+              and{" "}
+              <span className="bg-clip-text bg-gradient-to-r from-[#103295] to-[#1fb2f8] text-transparent font-bold">
+                Agencies
+              </span>
             </p>
           </div>
         </section>
@@ -175,24 +227,27 @@ const About = () => {
         <section className="bg-white px-6 py-16 md:px-16 lg:px-20">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-start">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="text-white text-2xl">🚀</div>
-                </div>
-                <h4 className="text-lg text-gray-600 mb-2">
+              {/* First Card */}
+              <div className="relative">
+                <div className="border-t border-gray-200 mb-6"></div>
+                <img src={Rocket} alt="Rocket" className="mb-6 w-20 h-20" />
+                <h4 className="text-xl md:text-2xl text-gray-500 mb-2">
                   What Sets Us Apart
                 </h4>
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
+                <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
                   Speed, Clarity, Execution
                 </h3>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="text-white text-2xl">🧠</div>
-                </div>
-                <h4 className="text-lg text-gray-600 mb-2">Built Different</h4>
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
-                  We don't give AI advice
+
+              {/* Second Card */}
+              <div className="relative">
+                <div className="border-t border-gray-200 mb-6"></div>
+                <img src={Brain} alt="Brain" className="mb-6 w-20 h-20" />
+                <h4 className="text-xl md:text-2xl text-gray-500 mb-2">
+                  Built Different
+                </h4>
+                <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
+                  We don’t give AI advice
                 </h3>
               </div>
             </div>

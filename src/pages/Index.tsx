@@ -15,8 +15,8 @@ import howItWorks03 from "@/assets/how-it-works-03.png";
 
 const Index = () => {
   return (
-    <div className="flex flex-col px-20 max-md:pl-5">
-      <div className="w-full max-w-screen-xl overflow-hidden bg-[#FCFCFF] max-md:max-w-full mx-auto">
+    <div>
+      <div className="w-full max-w-full overflow-hidden bg-[#FCFCFF] max-md:max-w-full">
         <Header />
 
         <main>
@@ -34,15 +34,30 @@ const Index = () => {
 
             {/* Cards container */}
             <div className="flex justify-center items-stretch gap-8 max-w-6xl mx-auto max-md:flex-col max-md:gap-6 -mt-8 md:-mt-12 lg:-mt-16">
+              {/* Card */}
               {[
-                { img: howItWorks01, title: "Intake",  desc: "Understanding your challenges to create a solution." },
-                { img: howItWorks02, title: "Build",   desc: "Developing smart workflows that suit your business." },
-                { img: howItWorks03, title: "Deliver", desc: "Launching AI solutions that drive measurable success." },
+                {
+                  img: howItWorks01,
+                  title: "Intake",
+                  desc: "Understanding your challenges to create a solution.",
+                },
+                {
+                  img: howItWorks02,
+                  title: "Build",
+                  desc: "Developing smart workflows that suit your business.",
+                },
+                {
+                  img: howItWorks03,
+                  title: "Deliver",
+                  desc: "Launching AI solutions that drive measurable success.",
+                },
               ].map((card, i) => (
                 <div
                   key={i}
                   className="bg-[#f2f5fe] flex-1 bg-card rounded-xl p-6 md:p-6 lg:p-8 shadow-lg border border-border transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 cursor-pointer"
-                  style={{ boxShadow: "20px -20px 30px -10px rgba(0, 0, 0, 0.3)" }}
+                  style={{
+                    boxShadow: "20px -20px 30px -10px rgba(0, 0, 0, 0.3)",
+                  }}
                 >
                   <div className="text-center">
                     <img

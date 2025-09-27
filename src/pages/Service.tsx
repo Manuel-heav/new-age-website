@@ -9,77 +9,15 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import serviceDesktop from "../assets/service-desktop.png";
+import serviceTablet from "../assets/service-tablet.png";
+import serviceMobile from "../assets/service-mobile.png";
+import OurServices from "@/components/OurServices";
+import Pricing from "@/components/Pricing";
+import Results from "@/components/Results";
+import CTA from "@/components/CTA";
 
 const Service = () => {
-  const serviceCards = [
-    {
-      title: "Starter Automation",
-      price: "$60",
-      description: "First time buyers, Solopreneur",
-      gradient: "from-purple-600 to-blue-600",
-    },
-    {
-      title: "Growth Agent",
-      price: "$60",
-      description: "First time buyers, Solopreneur",
-      gradient: "from-blue-600 to-purple-600",
-    },
-    {
-      title: "Premium Package",
-      price: "$120",
-      description: "Scale your business",
-      gradient: "from-green-600 to-blue-600",
-    },
-  ];
-
-  const automationCards = [
-    {
-      title: "AI Strategy Call",
-      subtitle: "First time buyers, Solopreneur",
-      price: "Try for Free!",
-      features: [
-        "60mins consultation with AI Expert",
-        "Tech stack audit of current workflows",
-        "3 Automation ideas tailored to the business",
-        "Action plan PDF sent post call",
-      ],
-      buttonText: "Book a Call",
-      highlight: true,
-    },
-    {
-      title: "AI Setup Starter",
-      subtitle: "SMBs or Consultant wanting small AI helps",
-      price: "$250",
-      features: [
-        "1 Basic app automation",
-        "Show them N8N & Zapier workflows for automation",
-        "Build a custom workflow & Offer Bundled Templates",
-      ],
-      buttonText: "Book a Call",
-    },
-    {
-      title: "AI Full Automation",
-      subtitle: "Business with repetitive ops.",
-      price: "$750 - $1200",
-      features: [
-        "End-to-end AI orchestration and implementation",
-        "2 Weeks maintenance included i.e implementation in client systems, training them, resolving any",
-      ],
-      buttonText: "Book a Call",
-    },
-    {
-      title: "AI Custom Build",
-      subtitle: "Enterprise & Custom Solutions",
-      price: "Custom Quote",
-      features: [
-        "Fully customized AI solutions",
-        "Dedicated project manager",
-        "24/7 support and maintenance",
-      ],
-      buttonText: "Get Quote",
-    },
-  ];
-
   const faqItems = [
     {
       question:
@@ -164,14 +102,12 @@ const Service = () => {
         "You can request upgrades or adjustments anytime. We offer retainer packages for ongoing optimization.",
     },
     {
-      question:
-        "Do you work with startups as well as established businesses?",
+      question: "Do you work with startups as well as established businesses?",
       answer:
         "Yes. We tailor our approach for early-stage startups through to established enterprises.",
     },
     {
-      question:
-        "What makes New Age AI different from other AI agencies?",
+      question: "What makes New Age AI different from other AI agencies?",
       answer:
         "We deliver simple, scalable, and documented workflows with a hands-on approach so your team understands and benefits from the solution.",
     },
@@ -181,207 +117,89 @@ const Service = () => {
     <div className="min-h-screen bg-[#FCFCFF]">
       <Header />
 
-      <main className="w-full">
+      <main className="w-full mt-10">
         {/* Hero Section */}
-        <section className="relative overflow-hidden">
-          <div className="bg-gradient-to-br from-[#071446] via-[#1e3a8a] to-[#3730a3] px-16 py-20 text-center text-white max-md:px-5 rounded-3xl mx-8 mt-8">
-            <div className="max-w-4xl mx-auto relative z-10">
-              <h1 className="text-5xl font-bold mb-6 max-md:text-3xl">
-                We've Got
-                <br />
-                <span className="text-white">a Package for You</span>
-              </h1>
-              <p className="text-lg text-blue-100 mb-8 max-md:text-base">
-                Whether you're just starting with Automation
-                <br />
-                Or want to Scale it
-              </p>
-              <div className="flex gap-4 justify-center max-md:flex-col max-md:items-center">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-base">
-                  Book Strategy Call
-                </Button>
-                <Button
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-[#071446] px-8 py-3 rounded-lg text-base"
-                >
-                  See Pricing
-                </Button>
-              </div>
-            </div>
+        <section className="relative h-[500px] sm:h-[450px] md:h-[500px] lg:h-[600px] p-6 sm:p-10 md:p-16">
+          {/* Desktop Image */}
+          <div className="hidden lg:block absolute inset-0 overflow-hidden px-16">
+            <img
+              src={serviceDesktop}
+              alt="About us"
+              className="w-full h-full object-cover rounded-3xl"
+            />
+          </div>
+
+          {/* Tablet Image */}
+          <div className="hidden md:block lg:hidden absolute inset-0 overflow-hidden px-12">
+            <img
+              src={serviceTablet}
+              alt="About us"
+              className="w-full h-full object-cover rounded-3xl"
+            />
+          </div>
+
+          {/* Mobile Image */}
+          <div className="block md:hidden overflow-hidden px-4">
+            <img
+              src={serviceMobile}
+              alt="About us"
+              className="w-full h-full object-cover rounded-3xl"
+            />
+          </div>
+
+          {/* Buttons */}
+          <div className="relative mt-12 md:absolute md:bottom-4 md:left-1/2 md:transform md:-translate-x-1/2 md:mt-0 w-full flex flex-row justify-center items-center gap-6 px-6">
+            {/* Filled gradient (Book) - gradient on inner span */}
+            <button className="relative px-0.5 py-0.5 rounded-lg w-full sm:w-auto bg-transparent">
+              <span className="block rounded-md px-8 py-4 font-semibold text-lg bg-gradient-to-r from-[#103295] to-[#1fb2f8] text-white text-center">
+                Book Strategy Call
+              </span>
+            </button>
+
+            {/* Bordered gradient (Pricing) - gradient on outer, white inner */}
+            <button className="relative px-0.5 py-0.5 rounded-lg w-full sm:w-auto bg-gradient-to-r from-[#102a8e] to-[#1fb4f9]">
+              <span className="block bg-white rounded-md px-8 py-4 font-semibold text-lg text-[#0f288d] text-center">
+                See Pricing
+              </span>
+            </button>
           </div>
         </section>
 
-        {/* Our Service Section */}
-        <section className="px-16 py-16 max-md:px-5">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col lg:flex-row items-start gap-12">
-              <div className="lg:w-1/3">
-                <h2 className="text-4xl font-bold text-[#130231] mb-4">
-                  Our
-                  <br />
-                  Service
-                </h2>
-              </div>
+        <section className="px-16 py-16 mt-20 max-md:px-5">
+          <div className="mx-auto">
+            <div className="flex flex-col lg:flex-row items-center gap-32">
+              {/* Left side text */}
+              <h2 className="text-4xl sm:text-6xl lg:text-8xl font-semibold text-[#130231] -mb-28 sm:-mb-0">
+                Our <br className="hidden sm:block" />
+                Services
+              </h2>
 
-              <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-6">
-                {serviceCards.map((card, index) => (
-                  <Card
-                    key={index}
-                    className="relative overflow-hidden border-0 shadow-lg"
-                  >
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-90`}
-                    />
-                    <CardContent className="relative z-10 p-6 text-white text-center">
-                      <h3 className="text-lg font-bold mb-2">{card.title}</h3>
-                      <p className="text-sm opacity-90 mb-4">
-                        {card.description}
-                      </p>
-                      <div className="text-2xl font-bold mb-4">
-                        {card.price}
-                      </div>
-                      <Button className="w-full bg-white text-gray-800 hover:bg-gray-100 rounded-lg">
-                        Select
-                      </Button>
-                    </CardContent>
-                  </Card>
-                ))}
+              <div className="max-w-full lg:max-w-[70%]">
+                <OurServices />
               </div>
             </div>
           </div>
         </section>
 
         {/* What do you want to Automate Section */}
-        <section className="px-16 py-16 max-md:px-5">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl font-bold text-center text-[#130231] mb-12 max-md:text-2xl">
-              What do you want to{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
-                Automate?
-              </span>
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {automationCards.map((card, index) => (
-                <Card
-                  key={index}
-                  className="relative border-2 border-gray-200 rounded-xl overflow-hidden bg-gradient-to-br from-[#071446] to-[#1e3a8a] text-white"
-                >
-                  <CardHeader className="text-center p-6">
-                    <div className="text-xs text-blue-200 mb-2">
-                      {card.subtitle}
-                    </div>
-                    <CardTitle className="text-lg font-bold text-white mb-4">
-                      {card.title}
-                    </CardTitle>
-                    <div className="text-2xl font-bold text-white mb-4">
-                      {card.price}
-                    </div>
-                  </CardHeader>
-
-                  <CardContent className="p-6 pt-0">
-                    <ul className="space-y-2 mb-6 text-sm">
-                      {card.features.map((feature, featureIndex) => (
-                        <li
-                          key={featureIndex}
-                          className="flex items-start text-blue-100"
-                        >
-                          <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 mr-2 flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-2 text-sm">
-                      {card.buttonText}
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
+        <div className="mt-28">
+          <Pricing />
+        </div>
 
         {/* Result Section */}
-        <section className="px-16 py-16 bg-gradient-to-br from-[#071446] to-[#1e3a8a] text-white max-md:px-5">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-6xl font-bold mb-16 max-md:text-4xl">Result</h2>
-
-            <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-              <div className="bg-white text-gray-800 p-6 rounded-xl shadow-lg transform rotate-3">
-                <div className="text-sm text-gray-600 mb-2">
-                  CLIENT ONBOARDING
-                </div>
-                <div className="text-4xl font-bold text-blue-600">5x</div>
-                <div className="text-lg font-semibold">Faster</div>
-              </div>
-
-              <div className="bg-white text-gray-800 p-6 rounded-xl shadow-lg transform -rotate-2">
-                <div className="text-sm text-gray-600 mb-2">SAVED</div>
-                <div className="text-4xl font-bold text-orange-500">12</div>
-                <div className="text-lg font-semibold">Hours/Week</div>
-              </div>
-
-              <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg">
-                <div className="w-16 h-16 border-4 border-blue-600 rounded-full relative">
-                  <div className="absolute top-1 left-1/2 -translate-x-1/2 w-0.5 h-6 bg-blue-600" />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-0.5 bg-blue-600" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <div className="mt-28">
+          <Results />
+        </div>
 
         {/* Ready to Get Started Section */}
-        <section className="px-16 py-16 max-md:px-5">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-[#130231] mb-4 max-md:text-2xl">
-              Ready to{" "}
-              <span className="bg-gradient-to-r from-[#103295] to-[#1fb2f8] bg-clip-text text-transparent">
-                Get Started?
-              </span>
-            </h2>
-            <p className="text-lg text-gray-600 mb-8">
-              Let's Schedule a Call and Explore the possibilities.
-            </p>
-
-            <div className="flex items-center justify-center gap-8 mb-8">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs">✓</span>
-                </div>
-                <span className="text-sm text-gray-600">100% Refund</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs">✓</span>
-                </div>
-                <span className="text-sm text-gray-600">Satisfaction</span>
-              </div>
-            </div>
-
-            <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-3 rounded-lg text-base">
-              Book Strategy Call
-            </Button>
-          </div>
-
-          <div className="mt-16 relative">
-            <div className="bg-gradient-to-r from-blue-400 to-blue-600 rounded-3xl p-8 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-transparent" />
-              <div className="relative z-10 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-2xl font-bold mb-2">🤝</div>
-                  <p className="text-sm opacity-90">Partnership & Trust</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <div className="mt-28">
+          <CTA />
+        </div>
 
         {/* FAQ Section */}
         <section id="faqs" className="px-16 py-16 max-md:px-5">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-center text-[#130231] mb-12">
+            <h2 className="text-4xl font-semibold text-center text-[#130231] mb-12">
               FAQs
             </h2>
 
@@ -400,7 +218,7 @@ const Service = () => {
                     <AccordionTrigger className="text-left font-medium text-[#130231]">
                       {item.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-gray-600">
+                    <AccordionContent className="text-[#6b84fd]">
                       {item.answer}
                     </AccordionContent>
                   </AccordionItem>
