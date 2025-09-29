@@ -12,7 +12,7 @@ const Proven = () => {
           <span className="font-bold bg-clip-text bg-gradient-to-r from-blue-800 to-sky-400 text-transparent">
             Results,
           </span>{" "}
-          Real{" "}
+            Real{" "}
           <span className="font-bold bg-clip-text bg-gradient-to-r from-blue-800 to-sky-400 text-transparent">
             Impact
           </span>

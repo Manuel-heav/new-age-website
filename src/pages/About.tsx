@@ -157,13 +157,13 @@ const About = () => {
 
             <div
               className="
-        grid 
-        grid-cols-3 
-        gap-y-8 
-        gap-x-6
-        sm:grid-cols-3
-        md:flex md:flex-wrap md:justify-center md:items-center md:gap-x-12 lg:gap-x-16
-      "
+                  grid 
+                  grid-cols-3 
+                  gap-y-8 
+                  gap-x-6
+                  sm:grid-cols-3
+                  md:flex md:flex-wrap md:justify-center md:items-center md:gap-x-12 lg:gap-x-16
+                "
             >
               {/* ChatGPT */}
               <div className="flex flex-col md:flex-row items-center justify-center gap-x-3">
