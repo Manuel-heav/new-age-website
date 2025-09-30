@@ -26,13 +26,9 @@ const Footer = () => {
     },
     {
       name: "Email",
-      href: "mailto:info@newageai.com",
+      href: "mailto:consultation@newageai.co",
       customIcon:
         "https://cdn.builder.io/api/v1/image/assets/TEMP/fbca29055cc4251d2e3172b3d7246bee6e3745f4?placeholderIfAbsent=true",
-    },
-    {
-      name: "WhatsApp",
-      href: "https://whatsapp.com/jaketrent",
     },
   ];
 

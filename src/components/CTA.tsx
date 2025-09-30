@@ -85,7 +85,7 @@ const CTA = () => {
                   Email
                 </div>
                 <div className="text-[#0F288D] text-base font-bold tracking-[-0.08px]">
-                  abc@gmail.com
+                consultation@newageai.co
                 </div>
               </div>
             </div>

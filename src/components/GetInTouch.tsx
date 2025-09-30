@@ -98,7 +98,7 @@ const GetInTouch = () => {
                   <p className="text-xs text-white/80">Email</p>
                   {/* Smaller text on mobile */}
                   <p className="text-xs sm:text-sm font-medium">
-                    abc@gmail.com
+                  consultation@newageai.co
                   </p>
                 </div>
               </div>
