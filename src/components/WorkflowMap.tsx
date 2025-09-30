@@ -1,16 +1,11 @@
 import React from "react";
+import workflowPdf from "@/assets/workflow.pdf";
 
 const WorkflowMap = () => {
   const handleDownload = () => {
-    // Handle workflow map download
-    console.log("Downloading workflow map...");
-    // In a real implementation, this would trigger a file download
-
     const fileName = "New Age AI – Free Workflow Toolkit.pdf";
-    const filePath = `/${fileName}`; // served from public/
-
     const link = document.createElement("a");
-    link.href = encodeURI(filePath);
+    link.href = workflowPdf;
     link.setAttribute("download", fileName);
     document.body.appendChild(link);
     link.click();

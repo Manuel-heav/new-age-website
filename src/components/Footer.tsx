@@ -95,6 +95,9 @@ const Footer = () => {
                 {category.charAt(0).toUpperCase() + category.slice(1)}
               </h3>
               {links.map((link) => {
+                // Prefer native anchors for hash links so the browser scrolls to the element
+                const isHashLink = link.href.includes("#");
+
                 // Scroll to top for specific pages
                 const handleClick = () => {
                   if (
@@ -103,6 +106,18 @@ const Footer = () => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }
                 };
+
+                if (isHashLink) {
+                  return (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      className="text-gray-500 mt-3 hover:text-blue-600 transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  );
+                }
 
                 return isInternal(link.href) ? (
                   <NavLink
