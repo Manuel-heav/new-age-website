@@ -15,7 +15,7 @@ const Footer = () => {
     ],
     insight: [
       { name: "Contact", href: "/contact" },
-      { name: "Best practices", href: "/#" },
+      { name: "Best practices", href: "/#companysteps" },
     ],
   };
 
