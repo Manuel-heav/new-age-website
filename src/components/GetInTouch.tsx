@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Phone, Mail } from "lucide-react"; // Assuming lucide-react for icons
+import emailjs from "@emailjs/browser";
 
 // Import all three images
 import contactDesktop from "../assets/contact-desktop.png";
@@ -12,7 +13,6 @@ const GetInTouch = () => {
   const handleBookCall = () => {
     // Handle book call action
     console.log("Booking strategy call...");
-    window.location.href = "/contact#meeting";
   };
 
   const [formData, setFormData] = useState({
@@ -20,6 +20,9 @@ const GetInTouch = () => {
     email: "",
     company: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState<null | boolean>(null);
+  const [feedback, setFeedback] = useState<string>("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -27,12 +30,46 @@ const GetInTouch = () => {
       ...prev,
       [name]: value,
     }));
+    if (submitSuccess !== null) {
+      setSubmitSuccess(null);
+      setFeedback("");
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission logic here
+    if (!formData.name || !formData.email) {
+      setSubmitSuccess(false);
+      setFeedback("Please fill in name and email.");
+      return;
+    }
+    try {
+      setIsSubmitting(true);
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("EmailJS env vars not configured");
+      }
+
+      const params = {
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company,
+        message: "",
+        to_email: "consultation@newageai.co",
+      };
+
+      await emailjs.send(serviceId, templateId, params, { publicKey });
+      setSubmitSuccess(true);
+      setFeedback("Thanks! We'll get back to you shortly.");
+      setFormData({ name: "", email: "", company: "" });
+    } catch (err: any) {
+      setSubmitSuccess(false);
+      setFeedback(err?.message || "Failed to send message");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -153,15 +190,27 @@ const GetInTouch = () => {
                   onChange={handleInputChange}
                   className="w-full h-12 bg-[#ededed] border-none rounded-lg px-4"
                 />
+                {submitSuccess !== null && (
+                  <div
+                    className={`mt-2 rounded-lg px-3 py-2 text-sm border ${
+                      submitSuccess
+                        ? "text-green-700 bg-green-50 border-green-200"
+                        : "text-red-700 bg-red-50 border-red-200"
+                    }`}
+                  >
+                    {feedback}
+                  </div>
+                )}
               </div>
             </div>
             <div className="flex justify-end">
               <Button
                 onClick={handleBookCall}
                 type="submit"
-                className="w-full sm:w-40 h-16 bg-gradient-to-r from-[#103395] to-[#1eb0f5] text-white text-base font-semibold rounded-lg hover:opacity-90 transition-opacity"
+                disabled={isSubmitting}
+                className="w-full sm:w-40 h-16 bg-gradient-to-r from-[#103395] to-[#1eb0f5] text-white text-base font-semibold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-60"
               >
-                Book Now
+                {isSubmitting ? "Sending..." : "Book Now"}
               </Button>
             </div>
           </form>
