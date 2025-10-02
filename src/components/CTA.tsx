@@ -57,23 +57,7 @@ const CTA = () => {
             Let's schedule a Call and Explore the possibilities.
           </p>
 
-          <div className="flex w-full max-w-[420px] flex-row justify-center gap-4 text-[#0F288D] mt-4 md:justify-start">
-            <div className="flex items-center gap-2 flex-1 shrink p-4 basis-[0%] bg-[#DEDEDE] rounded-full">
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/90b5ac4abbe6e477b05abc3af86a66d60118a43d?placeholderIfAbsent=true"
-                alt="Phone icon"
-                className="aspect-square object-contain w-10 shrink-0"
-              />
-              <div>
-                <div className="text-[#0F288D] text-xs font-medium tracking-[-0.06px]">
-                  Phone number
-                </div>
-                <div className="text-[#0F288D] text-base font-bold tracking-[-0.08px]">
-                  +1234567890
-                </div>
-              </div>
-            </div>
-
+          <div className="flex w-full max-w-[420px] flex-row justify-center gap-4 text-[#0F288D] mt-4 md:justify-start"> 
             <div className="flex items-center gap-2 whitespace-nowrap p-4 flex-1 shrink basis-[0%] bg-[#DEDEDE] rounded-full">
               <img
                 src="https://api.builder.io/api/v1/image/assets/TEMP/3c5746aaf34e7ce324e9bad279414cfb4bb29bcf?placeholderIfAbsent=true"

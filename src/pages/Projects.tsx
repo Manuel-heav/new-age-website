@@ -10,6 +10,7 @@ import phoneOneSmall from "@/assets/phone-mockup-preview-SMALL.png";
 import phoneTwoSmall from "@/assets/phone-mockup-preview-SMALL-second.png";
 import phoneThreeSmall from "@/assets/phone-mockup-preview-SMALL-third.png";
 import aiTechImage from "@/assets/ai-tech-new.png";
+import slackbotVideo from "@/assets/slackbot.mp4";
 import CTA from "@/components/CTA";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -252,16 +253,19 @@ const Projects = () => {
           <div className="w-full">
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div className="flex justify-center order-1 md:order-2">
-                <img
-                  src={aiTechImage || "/placeholder.svg"}
-                  alt="AI Automation Technology"
+                <video
+                  src={slackbotVideo}
                   className="w-full max-w-sm md:max-w-md lg:max-w-lg rounded-2xl shadow-lg"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
                 />
               </div>
 
               <div className="p-4 md:p-6 rounded-lg order-2 md:order-1 text-center md:text-left">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
-                  Cadabra App
+                <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
+                  New Age Slack Bot
                 </h2>
 
                 <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed font-medium">
@@ -287,7 +291,7 @@ const Projects = () => {
 
               <div className="p-4 md:p-6 rounded-lg flex flex-col items-center md:items-start text-center md:text-left">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
-                  New Age Slack Bot
+                  Cadabra App
                 </h2>
 
                 <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed font-medium">

@@ -98,30 +98,6 @@ const GetInTouch = () => {
 
           {/* Use a smaller gap on mobile */}
           <div className="flex flex-row gap-2 sm:gap-4">
-            {/* Phone Number Card */}
-            {/* Adjusted padding for smaller size on mobile */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-3 sm:p-4 w-full flex flex-col">
-              <div className="flex items-center">
-                {/* Smaller icon container on mobile */}
-                <div className="bg-black/40 rounded-full p-1.5 sm:p-2 mr-2 sm:mr-4">
-                  {/* Smaller icon on mobile */}
-                  <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-                </div>
-                <div>
-                  <p className="text-xs text-white/80">Phone number</p>
-                  {/* Smaller text on mobile */}
-                  <p className="text-xs sm:text-sm font-medium">+1234567890</p>
-                </div>
-              </div>
-              <Button
-                size="sm"
-                /* Smaller button and margin on mobile */
-                className="mt-2 sm:mt-3 bg-[#a7e5ff] hover:bg-[#92d4ee] text-blue-900 rounded-lg h-9 px-3 sm:h-10 sm:px-4 self-start"
-              >
-                Chat now
-              </Button>
-            </div>
-
             {/* Email Card */}
             {/* Adjusted padding for smaller size on mobile */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-3 sm:p-4 w-full flex flex-col">
