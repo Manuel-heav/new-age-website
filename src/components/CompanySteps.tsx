@@ -56,7 +56,7 @@ const CompanySteps = () => {
   const orderedSlides = [left, middle, right];
 
   return (
-    <section className="w-full py-24">
+    <section id="companysteps" className="w-full py-24">
       <div className="w-full text-center leading-[1.1]">
         <h2 className="text-5xl md:text-7xl font-bold tracking-[-1px] bg-clip-text bg-gradient-to-r from-[#0f288d] to-[#1fbcff] text-transparent">
           Empowering Your Business
