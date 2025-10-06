@@ -11,6 +11,7 @@ import phoneTwoSmall from "@/assets/phone-mockup-preview-SMALL-second.png";
 import phoneThreeSmall from "@/assets/phone-mockup-preview-SMALL-third.png";
 import aiTechImage from "@/assets/ai-tech-new.png";
 import slackbotVideo from "@/assets/slackbot.mp4";
+import cadabraVideo from "@/assets/Newcadabra.mp4";
 import CTA from "@/components/CTA";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -281,13 +282,17 @@ const Projects = () => {
         <section className="max-w-7xl mx-auto md:bg-[#f2f5fe] px-6 py-12 md:py-16 md:px-12 lg:px-20 mb-20 md:mb-28 md:rounded-3xl md:shadow-md flex items-center justify-center">
           <div className="w-full">
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-              <div className="flex justify-center">
-                <img
-                  src={aiTechImage || "/placeholder.svg"}
-                  alt="AI Automation Technology"
+            <div className="flex justify-center order-1 md:order-2">
+                <video
+                  src={cadabraVideo}
                   className="w-full max-w-sm md:max-w-md lg:max-w-lg rounded-2xl shadow-lg"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
                 />
               </div>
+
 
               <div className="p-4 md:p-6 rounded-lg flex flex-col items-center md:items-start text-center md:text-left">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
