@@ -87,7 +87,7 @@ const About = () => {
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-base sm:text-lg md:text-2xl text-gray-700 leading-relaxed font-semibold">
               <span className="bg-clip-text bg-gradient-to-r from-[#103295] to-[#1fb2f8] text-transparent font-semibold text-lg sm:text-xl md:text-3xl">
-                New Age Guardian
+                New Age AI
               </span>{" "}
               <span className="text-lg sm:text-xl md:text-3xl">
                 was founded to help founders spend more time on strategy, not

@@ -65,9 +65,7 @@ const Projects = () => {
         if (!videoEl) return;
         try {
           if (idx === currentVideoIndex) {
-            // Active video: play it
-            const p = videoEl.play?.();
-            if (p && typeof p.catch === "function") p.catch(() => {});
+            // Active video: do nothing, let user control
           } else {
             // Inactive video: pause, reset, and reload to show poster
             videoEl.pause?.();
@@ -163,11 +161,10 @@ const Projects = () => {
                           }}
                           src={videoFiles[idx]}
                           poster={posterImages[idx]}
-                          autoPlay={idx === currentVideoIndex}
-                          muted
                           onEnded={handleVideoEnd}
                           playsInline
                           preload="metadata"
+                          controls
                         />
                       </div>
                       <img
@@ -229,11 +226,10 @@ const Projects = () => {
                           }}
                           src={videoFiles[idx]}
                           poster={posterImages[idx]}
-                          autoPlay={idx === currentVideoIndex}
-                          muted
                           onEnded={handleVideoEnd}
                           playsInline
                           preload="metadata"
+                          controls
                         />
                       </div>
                       <img
@@ -261,6 +257,7 @@ const Projects = () => {
                   muted
                   loop
                   playsInline
+                  controls
                 />
               </div>
 
@@ -290,6 +287,7 @@ const Projects = () => {
                   muted
                   loop
                   playsInline
+                  controls
                 />
               </div>
 
